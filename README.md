@@ -57,3 +57,8 @@ Llegamos a esta conclusion mediante el analisis de las respuestas obtenidas de l
 #### Propuesta de solucion
 
 ![Lluvia de ideas](/assets/images/Lluviaideas2.jpeg)
+
+#### Sketching
+
+
+#### Prototyping
