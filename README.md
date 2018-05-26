@@ -72,3 +72,4 @@ Para esto generamos un pequeño video con una historia de usuario:
 [Historia de usuario](https://www.powtoon.com/c/bjknz65hmC5/0/m)
 
 Y realizamos el Mockup detallando el flujo de nuestra aplicación:
+
