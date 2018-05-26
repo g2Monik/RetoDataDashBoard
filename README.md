@@ -1,59 +1,74 @@
-# Reto Data Dashboard
+# Reto Data DashBoard
 
-###  Reto de codigo
+###  Reto de código
 
-En este reto de codigo se debera desarrollar una herramienta para que todos los tranin Manager de todas las sedes delaboratoria puedan acceder a la informacion de manera rapida y concisa. Se pretende que puedan acceder a los datos por generacion y sede.
+En este reto de código se deberá desarrollar una herramienta para que los Training Manager de todas las sedes de laboratoría puedan acceder a la informacion de manera rapida y concisa. Se pretende que puedan acceder a los datos por generación y sede.
 
-En esta primera parte se debra entregar un repositorio de Github que contenga un archivo README en el cual se expondra toda la ducumentacion y el prosedo de diseño de esperiencia del usuario que se siguio para obtener la solucion del reto.
+En esta primera parte se deberá entregar un repositorio de Github que contenga un archivo README en el cual se expondrá toda la documentación y el proceso de diseño de experiencia del usuario que se siguió para obtener la solución del reto.
 
-##### Consideraciones Específicas
+### Consideraciones Específicas
 
-El Data Dashboard se debe poder consultar de manera eficaz los ,siguientes datos:
+En el Data Dashboard se debe poder consultar de manera eficaz los siguientes datos:
 
-1. Numero de estudiantes inscritas
+1. Número de estudiantes inscritas.
 
-2. Numero de estudiantes que desertaron
+2. Número de estudiantes que desertaron.
 
-3. Numero y porcentaje de estudiantes que pasan el criterio minimo de evaluacion
+3. Número y porcentaje de estudiantes que pasan el criterio mínimo de evaluación.
 
-4. Promedio final de notas por sprint
+4. Promedio final de notas por sprint.
 
-5. Promedio de notas HSE
+5. Promedio de notas HSE.
 
-6. Promedio de notas tecnicas
+6. Promedio de notas técnicas.
 
 ## Producto UX Data Dashboard
 
-### Investigacion
+### Investigación
 
-Se detecta una problematica en Laboratoria donde los Traning Manager no cuentan con una herramienta para recuperar la informacion relacionada con las alumnas de manera eficaz. Mediante una investigacion se identifico que utilizan un sistema obsoleto en el cual la manipulacion de datos es lenta y tediosa.
+Se detecta una problemática en Laboratoría, donde los Training Manager no cuentan con una herramienta para recuperar la información relacionada con las alumnas de manera eficaz.
+Mediante una investigación se identificó que utilizan un sistema obsoleto en el cual la manipulación de datos es lenta y tediosa.
 
 ### Resultados de entrevistas
 
-Se realizaron encuestras y entrevistas con las Traning Manager de diferentes sedes.
+Se realizaron encuestas y entrevistas con las Training Manager de diferentes sedes.
+Las respuestas mas significativas y de mayor peso para nuestro proyecto fueron las siguientes:
 
-***********
+ - a
+ - b
+ - c
+ - d
+ - e
 
+En base a esta informacíon detectamos que las principales problemáticas a mejorar son:
 
-En base a sus respuestas detectamos las principales problematicas a mejorar se enumeran a continuacion:
+1. La información se encuentra descentralizada y la búsqueda es manual.
 
-1. La informaciòn se encuentra desentralizada y la busqueda es manual
+2. El tiempo invertido en cotejar diferentes bases de datos es muy alto.
 
-2. El tiempo invertido en cotejar diferentes bases de datos es muy alto
+3. No cuentan con gráficos que permitan visualizar y comparar la información de manera eficaz.
 
-3. No cuentan con graficos que permitan visualizar la informacion de manera eficaz y compararla
+### Hipótesis
 
+Consideramos que la principal problemática que tienen las Training Managers de Laboratoría es la dispersión de la información y el manejo de la misma de manera manual.
+Esto les impide trabajar de manera ágil y obtener resultados concretos.
+Por esta razon los TM invierten mucho tiempo en localizar datos específicos como por ejemplo la información por estudiante, unidad, sprint, promedio, etc.
 
-### Hipotesis
+#### Definición de problema
 
-Consideramos que la principal problematica que tienen las Traning Managers de Laboratoria es la dispercion de la informacion y el manejo de la misma de manera manual. Esto les impide trabajar de manera agil y obtener resultados concretos. Invierten mucho tiempo en localizar los datos especificos como por ejemplo la informaciòn por estudiante, unidad, sprint, promedio, etc.
+ Mediante el análisis de las respuestas obtenidas de las entrevistas y encuestas realizadas a las Training Manager Llegamos a la conclusión de que necesitan una herramienta amigable que ayude a la recopilacion, analisis y representacion de datos ya que todas ellas mencionan esto. Utilizamos postit para anotar las ideas principales que detectamos así como compartir lo que cada una de nosotras logro concluir.
 
-#### Definicion de problema
-
-Llegamos a esta conclusion mediante el analisis de las respuestas obtenidas de las entrevistas y encuentas realizadas a las Traning Manager ya que todas ellas mencionan esto. Utilizamos postit para anotar las ideas principales que detectamos asi como compartir lo que cada una de nosotras logro concluir.
-
+#### Lluvia de ideas.
 ![Lluvia de ideas](/assets/images/Lluviaideas.jpeg)
 
-#### Propuesta de solucion
+#### Propuesta de solución.
 
 ![Lluvia de ideas](/assets/images/Lluviaideas2.jpeg)
+
+#### Sketching y Prototyping
+¿Cómo un data dashboard resuelve las necesidades de las clientes?
+Para esto generamos un pequeño video con una historia de usuario:
+
+[Historia de usuario](https://www.powtoon.com/c/bjknz65hmC5/0/m)
+
+Y realizamos el Mockup detallando el flujo de nuestra aplicación:
