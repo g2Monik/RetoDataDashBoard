@@ -34,15 +34,15 @@ Mediante una investigación se identificó que utilizan un sistema obsoleto en e
 Se realizaron encuestas y entrevistas con las Training Manager de diferentes sedes.
 Las respuestas mas significativas y de mayor peso para nuestro proyecto fueron las siguientes:
 
- - todo está en excel, entonces si quieres ver la data consolidada y ponerla en perspectiva con otro resultado/indicador toma mucho tiempo y no es muy agil.
+ - "Todo está en excel, entonces si quieres ver la data consolidada y ponerla en perspectiva con otro resultado/indicador toma mucho tiempo y no es muy agil."
 
- - una plataforma o una herramienta web conectada a la data y que genere los resultados automaticamente.
+ - "Una plataforma o una herramienta web conectada a la data y que genere los resultados automaticamente."
 
- - Que no está centralizada, son varios archivos con información distinta y es pesado a veces revisar todo para tener una idea general del estatus de las estudiantes.
+ - "Que no está centralizada, son varios archivos con información distinta y es pesado a veces revisar todo para tener una idea general del estatus de las estudiantes."
 
- - Filtros y gráficas que me resuman la información.
+ - "Filtros y gráficas que me resuman la información."
 
- - Es un poco estresante porque hay presión de tiempo para tener todo listo y poder entregar a las estudiantes el feedback que necesitan.
+ - "Es un poco estresante porque hay presión de tiempo para tener todo listo y poder entregar a las estudiantes el feedback que necesitan."
 
 En base a esta informacíon detectamos que las principales problemáticas a mejorar son:
 
