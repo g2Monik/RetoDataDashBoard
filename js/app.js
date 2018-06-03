@@ -62,8 +62,8 @@ function drawActive(){
           ['PER', activeSC1+activeSC2+activeSC3],
       ]);
   var options = {'title':'Activas Por Sede', //titulo de la grafica
-                       'width':550, //tamaños
-                       'height':400};
+                       'width':500, //tamaños
+                       'height':300};
   var grafica = new google.visualization.BarChart(document.getElementById('chartActive')); //en que div del html ira (charActive)
   grafica.draw(dat, options);
 }
@@ -376,5 +376,183 @@ function averageJedi1(){
                        'width':500,
                        'height':300};
   var grafica = new google.visualization.BarChart(document.getElementById('chartAveJedi1'));
+  grafica.draw(dat, options);
+}
+// Obteniendo Datos Sobre La satisfaccion De Las estudiantes Cumple + supera
+//GDL1
+
+var allArrayG1 = [];
+  sprintsG1 = [0, 0, 0, 0];
+var satisfactionG1 = 0;
+for (var i = 0; i < data['GDL']['2017-1'].ratings.length ; i++) {
+    var superaG1=data['GDL']['2017-1'].ratings[i].student.supera;
+    var cumpleG1=data['GDL']['2017-1'].ratings[i].student.cumple;
+    var bothG1 = cumpleG1 + superaG1;
+    satisfactionG1 += bothG1;
+    allArrayG1[i] = data['GDL']['2017-1'].ratings[i].student.cumple;
+}
+var totalG1 = (satisfactionG1 / 3)
+for (var i = 0; i < data['GDL']['2017-1'].ratings.length; i++) {
+    sprintsG1[i] = allArrayG1[i];
+}
+//CDMX1
+var satisfactionCD1 = 0;
+var allArrayCD1 = [];
+  sprintsCD1 = [0, 0, 0, 0];
+for (var i = 0; i < data['CDMX']['2017-1'].ratings.length ; i++) {
+    var cumpleCD1 = data['CDMX']['2017-1'].ratings[i].student.cumple;
+    var  superaCD1= data['CDMX']['2017-1'].ratings[i].student.supera;
+    var bothCD1 = cumpleCD1 + superaCD1;
+    satisfactionCD1 += bothCD1;
+    allArrayCD1[i] = data['CDMX']['2017-1'].ratings[i].student.cumple;
+}
+  var totalCD1 = (satisfactionCD1 / 3)
+  for (var i = 0; i < data['CDMX']['2017-1'].ratings.length; i++) {
+    sprintsCD1[i] = allArrayCD1[i];
+}
+//CDMX2
+var satisfactionCD2 = 0;
+var allArrayCD2 = [];
+  sprintsCD2 = [0, 0, 0, 0];
+for (var i = 0; i < data['CDMX']['2017-2'].ratings.length ; i++) {
+    var cumpleCD2 = data['CDMX']['2017-2'].ratings[i].student.cumple;
+    var  superaCD2= data['CDMX']['2017-2'].ratings[i].student.supera;
+    var bothCD2 = cumpleCD2 + superaCD2;
+    satisfactionCD2 += bothCD2;
+    allArrayCD2[i] = data['CDMX']['2017-2'].ratings[i].student.cumple;
+}
+  var totalCD2 = (satisfactionCD2 / 2)
+  for (var i = 0; i < data['CDMX']['2017-2'].ratings.length; i++) {
+    sprintsCD2[i] = allArrayCD2[i];
+}
+ //LIM1
+var satisfactionLI1 = 0;
+var allArrayLI1 = [];
+  sprintsLI1 = [0, 0, 0, 0];
+for (var i = 0; i < data['LIM']['2016-2'].ratings.length ; i++) {
+    var cumpleLI1 = data['LIM']['2016-2'].ratings[i].student.cumple;
+    var  superaLI1= data['LIM']['2016-2'].ratings[i].student.supera;
+    var bothLI1 = cumpleLI1 + superaLI1;
+    satisfactionLI1 += bothLI1;
+    allArrayLI1[i] = data['LIM']['2016-2'].ratings[i].student.cumple;
+}
+  var totalLI1 = (satisfactionLI1 / 2);
+  for (var i = 0; i < data['LIM']['2016-2'].ratings.length; i++) {
+    sprintsLI1[i] = allArrayLI1[i];
+}
+//LIM2
+var satisfactionLI2 = 0;
+var allArrayLI2 = [];
+  sprintsLI2 = [0, 0, 0, 0];
+for (var i = 0; i < data['LIM']['2017-1'].ratings.length ; i++) {
+    var cumpleLI2 = data['LIM']['2017-1'].ratings[i].student.cumple;
+    var  superaLI2= data['LIM']['2017-1'].ratings[i].student.supera;
+    var bothLI2 = cumpleLI2 + superaLI2;
+    satisfactionLI2 += bothLI2;
+    allArrayLI2[i] = data['LIM']['2017-1'].ratings[i].student.cumple;
+}
+  var totalLI2 = (satisfactionLI2 / 4)
+  for (var i = 0; i < data['LIM']['2017-1'].ratings.length; i++) {
+    sprintsLI2[i] = allArrayLI2[i];
+}
+//LIM3
+var satisfactionLI3 = 0;
+var allArrayLI3 = [];
+  sprintsLI3 = [0, 0, 0, 0];
+for (var i = 0; i < data['LIM']['2017-2'].ratings.length ; i++) {
+    var cumpleLI3 = data['LIM']['2017-2'].ratings[i].student.cumple;
+    var  superaLI3= data['LIM']['2017-2'].ratings[i].student.supera;
+    var bothLI3 = cumpleLI3 + superaLI3;
+    satisfactionLI3 += bothLI3;
+    allArrayLI3[i] = data['LIM']['2017-2'].ratings[i].student.cumple;
+}
+  var totalLI3 = (satisfactionLI3 / 2)
+  for (var i = 0; i < data['LIM']['2017-2'].ratings.length; i++) {
+    sprintsLI3[i] = allArrayLI3[i];
+}
+//SCL1
+var satisfactionSC1 = 0;
+var allArraySC1 = [];
+  sprintsSC1 = [0, 0, 0, 0];
+for (var i = 0; i < data['SCL']['2016-2'].ratings.length ; i++) {
+    var cumpleSC1 = data['SCL']['2016-2'].ratings[i].student.cumple;
+    var  superaSC1= data['SCL']['2016-2'].ratings[i].student.supera;
+    var bothSC1 = cumpleSC1 + superaSC1;
+    satisfactionSC1 += bothSC1;
+    allArraySC1[i] = data['SCL']['2016-2'].ratings[i].student.cumple;
+}
+  var totalSC1 = (satisfactionSC1 / 4);
+  for (var i = 0; i < data['SCL']['2016-2'].ratings.length; i++) {
+    sprintsSC1[i] = allArraySC1[i];
+}
+//SCL2
+var satisfactionSC2 = 0;
+var allArraySC2 = [];
+  sprintsSC2 = [0, 0, 0, 0];
+for (var i = 0; i < data['SCL']['2017-1'].ratings.length ; i++) {
+    var cumpleSC2 = data['SCL']['2017-1'].ratings[i].student.cumple;
+    var  superaSC2= data['SCL']['2017-1'].ratings[i].student.supera;
+    var bothSC2 = cumpleSC2 + superaSC2;
+    satisfactionSC2 += bothSC2;
+    allArraySC2[i] = data['SCL']['2017-1'].ratings[i].student.cumple;
+}
+  var totalSC2 = (satisfactionSC2 / 3);
+  for (var i = 0; i < data['SCL']['2017-1'].ratings.length; i++) {
+    sprintsSC2[i] = allArraySC2[i];
+}
+//SCL3
+var satisfactionSC3 = 0;
+var allArraySC3 = [];
+  sprintsSC3 = [0, 0, 0, 0];
+for (var i = 0; i < data['SCL']['2017-1'].ratings.length ; i++) {
+    var cumpleSC3 = data['SCL']['2017-1'].ratings[i].student.cumple;
+    var  superaSC3= data['SCL']['2017-1'].ratings[i].student.supera;
+    var bothSC3 = cumpleSC3 + superaSC3;
+    satisfactionSC3 += bothSC3;
+    allArraySC3[i] = data['SCL']['2017-1'].ratings[i].student.cumple;
+}
+  var totalSC3 = (satisfactionSC3 / 3);
+  for (var i = 0; i < data['SCL']['2017-1'].ratings.length; i++) {
+    sprintsSC3[i] = allArraySC3[i];
+}
+// Grafica de Promedio de Sobre La satisfaccion De Las estudiantes Cumple + supera por SEDE
+google.setOnLoadCallback(averageSat);
+function averageSat(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Porcentaje');
+      dat.addRows([
+          ['GDL', totalG1],
+          ['MEX', (totalCD1 + totalCD2)/2],
+          ['LIM', (totalLI1+totalLI2+totalLI3)/3],
+          ['PER', (totalSC1+totalSC2+totalSC3)/3],
+      ]);
+  var options = {'title':'Satisfaccion Por Sede',
+                       'width':500,
+                       'height':300};
+  var grafica = new google.visualization.BarChart(document.getElementById('chartSatisf'));
+  grafica.draw(dat, options);
+}
+// Grafica de Promedio de Sobre La satisfaccion De Las estudiantes Cumple + supera por Generacion
+google.setOnLoadCallback(averageSat1);
+function averageSat1(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Promedio');
+      dat.addRows([
+          ['GDL1', totalG1],
+          ['MEX1', totalCD1],
+          ['MEX2', totalCD2],
+          ['LIM1', totalLI1],
+          ['LIM2', totalLI2],
+          ['LIM3', totalLI3],
+          ['PER1', totalSC1],
+          ['PER2', totalSC2],
+          ['PER3', totalSC3],
+      ]);
+  var options = {'title':'Satisfaccion Por Generacion',
+                       'width':500,
+                       'height':300};
+  var grafica = new google.visualization.BarChart(document.getElementById('chartSatisf1'));
   grafica.draw(dat, options);
 }
