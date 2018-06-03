@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+}
+/* Header */
+header {
+  background-color: #E1E1E1;
+  height: 10vh;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+#firstsection {
+  display: inline-block;
+  width: 30%;
+}
+
+#imageuser {
+  border-radius: 50%;
+  display: inline-block;
+  left: 15%;
+  padding: 10px;
+  position: relative;
+  width: 50px;
+}
+
+#logolab {
+  display: inline-block;
+  left: 30%;
+  padding-bottom: 5%;
+  position: relative;
+  width: 230px;
+}
+
+#sections {
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  left: 42%;
+  position: absolute;
+  top: 30%;
+  width: 50%;
+}
+
+.menu {
+  color: black;
+  padding: 20px;
+  text-decoration: none;
+}
+
+hr {
+  background-color: #FEE420;
+  border: 1px;
+  height: 5px;
+  margin: 0;
+  position: relative;
+  bottom: 5px;
+}
+
+/* Main */
+#container, #container1, #container2  {
+  background-color: #ECF0F1;
+  position: relative;
+  width: 100%;
+}
+
+#container {
+  height: 1000px;
+  top: 10vh;
+}
+
+#container1 {
+  background-color: white;
+  height: 900px;
+}
+
+#container2 {
+  height: 900px;
+}
+
+.logos {
+  display: block;
+  left: 30%;
+  padding: 13vh;
+  padding-bottom: 1vh;
+  position: relative;
+  width: 25%;
+}
+
+.chart {
+  display: inline-block;
+  height: 300px;
+  left: 5%;
+  padding: 4vh;
+  position: relative;
+  width: 550px;
+  border: 3px solid black;
+}
+
+.sedelab {
+  height: 250px;
+  bottom: 5%;
+  left: 13%;
+  padding: 1vh;
+  padding-left: 3vh;
+  position: relative;
+  width: 400px;
+}
+
+.containersedes {
+  background-color: white;
+  border: 3px solid black;
+  height: 650px;
+}
+
+/* Footer */
+footer {
+  background-color: #A6ACAF;
+  display: inline-block;
+  height: 13vh;
+  margin: 0;
+  position: relative;
+  width: 100%;
+}
+
+.copy {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  font-weight: 400;
+  padding: 4vh;
+  text-align: center
+}
