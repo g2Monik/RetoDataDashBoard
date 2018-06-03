@@ -23,7 +23,6 @@
         <a class='menu'href='#location'>SEDES</a>
         <a class='menu' href='#coaches'>COACHES</a>
       </section>
-      <hr>
     </header>
     <!-- MAIN -->
     <main>
@@ -32,10 +31,10 @@
         <div id='container' class='statistics'>
           <A  id='statistics' name='statistics'></A>
           <img class='logos' src="assets/images/Estadisticas.png" alt="">
-          <div id="chartActive" class='chart'>Estudiantes Activas</div>
-          <div id="chartNoActive" class='chart'>Porcentaje no activas</div>
-          <div class='chart'>Cantidad y % estudantes exitosas</div>
-          <div class='chart'>Estudiantes satisfechas</div>
+          <div id='chartActive' class='chartStatistics'></div>
+          <div id='chartNoActive'class='chartStatistics'></div>
+          <div class='chartStatistics'>Cantidad y % estudantes exitosas</div>
+          <div class='chartStatistics'>Estudiantes satisfechas</div>
         </div>
       </section>
       <!-- Sedes pagina principal-->
@@ -49,20 +48,44 @@
           <a class='menu' href='#LIM'><img class='sedelab' src="assets/images/LIM.jpg" alt=""></a>
         </div>
         <!-- Sedes individuales-->
-        <div class='containersedes'><A  name='GDL'><img class='logos' src="assets/images/GDL.png" alt=""></A></div>
-        <div class='containersedes'><A name='CDMX'><img class='logos' src="assets/images/CDMX.png" alt=""></A></div>
-        <div class='containersedes'><A  name='SCL'><img class='logos' src="assets/images/SCL.png" alt=""></A></div>
-        <div class='containersedes'><A  name='LIM'><img class='logos' src="assets/images/LIM.png" alt=""></A></div>
+        <div class='containersedes'>
+          <A name='GDL'><img class='logos' src="assets/images/GDL.png" alt=""></A>
+          <div id='chartActive1' class='char'></div>
+          <div class='chart'>Porcentaje no activas</div>
+          <div class='chart'>Cantidad y % estudantes exitosas</div>
+          <div class='chart'>Estudiantes satisfechas</div>
+        </div>
+        <div class='containersedes'>
+          <A name='CDMX'><img class='logos' src="assets/images/CDMX.png" alt=""></A>
+          <div class='chart'>Estudiantes Activas</div>
+          <div class='chart'>Porcentaje no activas</div>
+          <div class='chart'>Cantidad y % estudantes exitosas</div>
+          <div class='chart'>Estudiantes satisfechas</div>
+        </div>
+        <div class='containersedes'>
+          <A name='SCL'><img class='logos' src="assets/images/SCL.png" alt=""></A>
+          <div class='chart'>Estudiantes Activas</div>
+          <div class='chart'>Porcentaje no activas</div>
+          <div class='chart'>Cantidad y % estudantes exitosas</div>
+          <div class='chart'>Estudiantes satisfechas</div>
+        </div>
+        <div class='containersedes'>
+          <A name='LIM'><img class='logos' src="assets/images/LIM.png" alt=""></A>
+          <div class='chart'>Estudiantes Activas</div>
+          <div class='chart'>Porcentaje no activas</div>
+          <div class='chart'>Cantidad y % estudantes exitosas</div>
+          <div class='chart'>Estudiantes satisfechas</div>
+        </div>
       </section>
-      <!-- Caches-->
+      <!-- Coaches-->
       <section>
         <div  id='container2' class='coaches'>
           <A  id='coaches' name='coaches'></A>
           <img class='logos' src='assets/images/Coaches.png' alt="">
-          <div id="chartAveTeach" class='chart'>Promedio profesores</div>
-          <div id="chartAveTeach1" class='chart'>Promedio profesores por generacion</div>
-          <div id="chartAveJedi" class='chart'>Promedio Jedi Masters</div>
-          <div id="chartAveJedi1" class='chart'>Promedio Jedi por generacion</div>
+          <div id="chartAveTeach" class='chartCoaches'></div> 
+          <div id="chartAveTeach1" class='chartCoaches'></div>
+          <div id="chartAveJedi" class='chartCoaches'></div>
+          <div id="chartAveJedi1" class='chartCoaches'></div>
         </div>
       </section>
    </main>
@@ -79,4 +102,3 @@
    <script type="text/javascript" src="js/app.js"></script>
  </body>
 </html>
-S

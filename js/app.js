@@ -6,9 +6,9 @@ var allCDMX2 = (data['CDMX']['2017-2'].students.length);
 var allLIM1 = (data['LIM']['2016-2'].students.length);
 var allLIM2 = (data['LIM']['2017-1'].students.length);
 var allLIM3 = (data['LIM']['2017-2'].students.length);
-var allSCL1 = (data['LIM']['2016-2'].students.length);
-var allSCL2 = (data['LIM']['2017-1'].students.length);
-var allSCL3 = (data['LIM']['2017-2'].students.length);
+var allSCL1 = (data['SCL']['2016-2'].students.length);
+var allSCL2 = (data['SCL']['2017-1'].students.length);
+var allSCL3 = (data['SCL']['2017-2'].students.length);
 //Establecemos las estudiantes activas por sede y generacion
 //tenemos que iterar con el for dentro de los objertos para llegar a la key active
 var activeGDL1 = data['GDL']['2017-1'].students;
@@ -59,37 +59,40 @@ function drawActive(){
           ['GDL', activeG1],
           ['MEX', activeCD1 + activeCD2],
           ['LIM', activeLI1+activeLI2 + activeLI3],
-          ['PER', activeSC1+activeSC2+activeSC3],
+          ['SCL', activeSC1+activeSC2+activeSC3],
       ]);
-  var options = {'title':'Activas Por Sede', //titulo de la grafica
-                       'width':550, //tamaños
-                       'height':400};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartActive')); //en que div del html ira (charActive)
+  var options = {'title':'Estudiantes activas por sede', //titulo de la grafica
+                       'width':780, //tamaños
+                       'height':380,
+                       colors: ['#91C391']};
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartActive')); //en que div del html ira (charActive)
   grafica.draw(dat, options);
 }
 // Grafica de Estudiantes activas por Generacion
 google.setOnLoadCallback(drawActive1);
 function drawActive1(){
   var dat = new google.visualization.DataTable();
-      dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
-      dat.addRows([
+    dat.addColumn('string', 'Ciudad');
+    dat.addColumn('number', 'Estudiantes');
+    dat.addRows([
           ['GDL1', activeG1],
           ['MEX1', activeCD1],
           ['MEX2', activeCD2],
           ['LIM1', activeLI1],
           ['LIM2', activeLI2],
           ['LIM3', activeLI3],
-          ['PER', activeSC1],
-          ['PER', activeSC2],
-          ['PER', activeSC3],
+          ['SCL1', activeSC1],
+          ['SCL2', activeSC2],
+          ['SCL3', activeSC3],
       ]);
-  var options = {'title':' Activas Por Generacion',
-                       'width':550,
-                       'height':400};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartActive1'));
+  var options = {'title':'Estudiantes activas por generacion',
+                       'width':680,
+                       'height':480,
+                       colors: ['#76D7C4']};
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartActive1'));
   grafica.draw(dat, options);
 }
+
 // Estudiantes No Activas por sede
 google.setOnLoadCallback(drawNoActive);
 function drawNoActive(){
@@ -100,12 +103,13 @@ function drawNoActive(){
           ['GDL', allGDL1-activeG1],
           ['MEX',(allCDMX1+allCDMX2)-(activeCD1+activeCD2)],
           ['LIM', (allLIM1+allLIM2+allLIM3)-(activeLI1+activeLI2 + activeLI3)],
-          ['PER', (allSCL1+allSCL2+allSCL3)-(activeSC1+activeSC2+activeSC3)],
+          ['SCL', (allSCL1+allSCL2+allSCL3)-(activeSC1+activeSC2+activeSC3)],
       ]);
-  var options = {'title':'No Activas Por Sede',
-                       'width':500,
-                       'height':250};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartNoActive'));
+  var options = {'title':'Estudiantes no activas por sede',
+                       'width':780,
+                       'height':480,
+                       colors: ['#76CDD7']};
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActive'));
   grafica.draw(dat, options);
 }
 // Estudiantes No Activas por Generacion
@@ -121,13 +125,13 @@ function drawNoActive1(){
           ['LIM1', allLIM1-activeLI1],
           ['LIM2', allLIM2-activeLI2],
           ['LIM3', allLIM3-activeLI3],
-          ['PER1', allSCL1-activeSC1],
-          ['PER2', allSCL2-activeSC2],
-          ['PER3', activeSC3-allSCL3], //ignora este dato el lunes hablo con levitha
+          ['SCL1', allSCL1-activeSC1],
+          ['SCL2', allSCL2-activeSC2],
+          ['SCL3', activeSC3-allSCL3], //ignora este dato el lunes hablo con levitha
       ]);
-  var options = {'title':' No Activas Por Generacion',
-                       'width':500,
-                       'height':300};
+  var options = {'title':' Estudiantes no activas por generacion',
+                       'width':480,
+                       'height':380};
   var grafica = new google.visualization.BarChart(document.getElementById('chartNoActive1'));
   grafica.draw(dat, options);
 }
@@ -305,12 +309,14 @@ function averageTeach(){
           ['GDL', scoreTG1],
           ['MEX', (scoreJCM1 + scoreJCM2)/2],
           ['LIM', (scoreTLM1+scoreTLM2+scoreTLM3)/3],
-          ['PER', (scoreTSC1+scoreTSC2+scoreTSC3)/3],
+          ['SCL', (scoreTSC1+scoreTSC2+scoreTSC3)/3],
       ]);
-  var options = {'title':'Jedi Por Sede', //titulo de la grafica
-                       'width':500, //tamaños
-                       'height':300};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartAveTeach')); //en que div del html ira (charActive)
+  var options = {'title':'Promedio profesores por sede', //titulo de la grafica
+                       'width':350, //tamaños
+                       'height':380,
+                        colors:['#884EA0','#9B59B6','#AF7AC5','#D7BDE2'],
+                        is3D: true};
+  var grafica = new google.visualization.PieChart(document.getElementById('chartAveTeach')); //en que div del html ira (charActive)
   grafica.draw(dat, options);
 }
 
@@ -327,13 +333,14 @@ function averageTeach1(){
           ['LIM1', scoreTLM1],
           ['LIM2', scoreTLM2],
           ['LIM3', scoreTLM3],
-          ['PER1', scoreTSC1],
-          ['PER2', scoreTSC2],
-          ['PER3', scoreTSC3],
+          ['SCL1', scoreTSC1],
+          ['SCL2', scoreTSC2],
+          ['SCL3', scoreTSC3],
       ]);
-  var options = {'title':'Profesores Por Generacion',
-                       'width':500,
-                       'height':300};
+  var options = {'title':'Promedio profesores por generación',
+                       'width':780,
+                       'height':380,
+                        colors: ['#2471A3']};
   var grafica = new google.visualization.BarChart(document.getElementById('chartAveTeach1'));
   grafica.draw(dat, options);
 }
@@ -347,12 +354,14 @@ function averageJedi(){
           ['GDL', scoreJG1],
           ['MEX', (scoreJCM1 + scoreJCM2)/2],
           ['LIM', (scoreJLM1+scoreJLM2+scoreJLM3)/3],
-          ['PER', (scoreJSC1+scoreJSC2+scoreJSC3)/3],
+          ['SCL', (scoreJSC1+scoreJSC2+scoreJSC3)/3],
       ]);
-  var options = {'title':'Jedi Por Sede', //titulo de la grafica
-                       'width':500, //tamaños
-                       'height':300};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartAveJedi')); //en que div del html ira (charActive)
+  var options = {'title':'Promedio jedi por sede', //titulo de la grafica
+                       'width':350, //tamaños
+                       'height':380,
+                       colors:['#17A589','#1ABC9C','#48C9B0','#76D7C4'],
+                       is3D: true};
+  var grafica = new google.visualization.PieChart(document.getElementById('chartAveJedi')); //en que div del html ira (charActive)
   grafica.draw(dat, options);
 }
 // Grafica de Promedio de jedi por Generacion
@@ -368,13 +377,14 @@ function averageJedi1(){
           ['LIM1', scoreTLM1],
           ['LIM2', scoreJLM2],
           ['LIM3', scoreJLM3],
-          ['PER1', scoreJSC1],
-          ['PER2', scoreJSC2],
-          ['PER3', scoreJSC3],
+          ['SCL1', scoreJSC1],
+          ['SCL2', scoreJSC2],
+          ['SCL3', scoreJSC3],
       ]);
-  var options = {'title':'Jedi Por Generacion',
-                       'width':500,
-                       'height':300};
+  var options = {'title':'Promedio jedi por Generacion',
+                       'width':780,
+                       'height':380,
+                       colors: ['#D98880']};
   var grafica = new google.visualization.BarChart(document.getElementById('chartAveJedi1'));
   grafica.draw(dat, options);
 }

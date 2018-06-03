@@ -3,8 +3,8 @@ body {
 }
 /* Header */
 header {
-  background-color: #E1E1E1;
-  height: 10vh;
+  background-color: white;
+  height: 13vh;
   position: fixed;
   width: 100%;
   z-index: 1;
@@ -21,13 +21,13 @@ header {
   left: 15%;
   padding: 10px;
   position: relative;
-  width: 50px;
+  width: 65px;
 }
 
 #logolab {
   display: inline-block;
   left: 30%;
-  padding-bottom: 5%;
+  padding-bottom: 6%;
   position: relative;
   width: 230px;
 }
@@ -39,7 +39,7 @@ header {
   font-weight: bold;
   left: 42%;
   position: absolute;
-  top: 30%;
+  top: 40%;
   width: 50%;
 }
 
@@ -49,29 +49,19 @@ header {
   text-decoration: none;
 }
 
-hr {
-  background-color: #FEE420;
-  border: 1px;
-  height: 5px;
-  margin: 0;
-  position: relative;
-  bottom: 5px;
-}
-
 /* Main */
 #container, #container1, #container2  {
-  background-color: #ECF0F1;
+  background-color: #F7F7F7;
   position: relative;
   width: 100%;
 }
 
 #container {
-  height: 1000px;
+  height: 2000px;
   top: 10vh;
 }
 
 #container1 {
-  background-color: white;
   height: 900px;
 }
 
@@ -82,7 +72,7 @@ hr {
 .logos {
   display: block;
   left: 30%;
-  padding: 13vh;
+  padding: 14vh;
   padding-bottom: 1vh;
   position: relative;
   width: 25%;
@@ -98,25 +88,37 @@ hr {
   border: 3px solid black;
 }
 
+.chartStatistics{
+  display: inline-block;
+  position: relative;
+}
+
 .sedelab {
-  height: 250px;
+  height: 245px;
   bottom: 5%;
   left: 13%;
   padding: 1vh;
   padding-left: 3vh;
   position: relative;
-  width: 400px;
+  width: 430px;
+}
+
+.chartCoaches {
+  display: inline-block;
+  left: 10%;
+  padding: .5vh;
+  position: relative;
 }
 
 .containersedes {
-  background-color: white;
-  border: 3px solid black;
-  height: 650px;
+  display: inline-block;
+  position: relative;
 }
+
 
 /* Footer */
 footer {
-  background-color: #A6ACAF;
+  background-color: #000000;
   display: inline-block;
   height: 13vh;
   margin: 0;
@@ -125,6 +127,7 @@ footer {
 }
 
 .copy {
+  color: white;
   font-family: 'Roboto', sans-serif;
   font-size: 1.1em;
   font-weight: 400;
