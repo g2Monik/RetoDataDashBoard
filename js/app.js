@@ -1,6 +1,7 @@
 // Variables globales
 //con esto solo jalamos la informacion de los objetos que estan en el archivo data.js
-var allGDL1 = (data['GDL']['2017-1'].students.length);
+var allGDL1 = (data['GDL']['2016-2'].students.length);
+var allGDL2 = (data['GDL']['2017-1'].students.length);
 var allCDMX1 = (data['CDMX']['2017-1'].students.length);
 var allCDMX2 = (data['CDMX']['2017-2'].students.length);
 var allLIM1 = (data['LIM']['2016-2'].students.length);
@@ -11,42 +12,68 @@ var allSCL2 = (data['SCL']['2017-1'].students.length);
 var allSCL3 = (data['SCL']['2017-2'].students.length);
 //Establecemos las estudiantes activas por sede y generacion
 //tenemos que iterar con el for dentro de los objertos para llegar a la key active
-var activeGDL1 = data['GDL']['2017-1'].students;
-    activeG1=activeGDL1.filter(function(student){return student.active}).length;
-    for(var i = 0; i < activeGDL1.length; i++){
-    }
+var activeGDL1 = data['GDL']['2016-2'].students;
+    var activeG1=activeGDL1.filter(function(student){return student.active}).length;
+
+var total = 0;
+var hseGDL = 0;
+var techGDL = 0;
+for(var i = 0; i < allGDL1; i++){
+  for(var j = 0; j < data['GDL']['2016-2'].students[i].sprints.length ; j++){
+    
+  }
+     hseGDL+= data['GDL']['2016-2'].students[i].sprints.hse;
+     techGDL+= data['GDL']['2016-2'].students[i].sprints.tech;
+     total = (hseGDL + techGDL);
+
+    console.log(total);
+ }
+
+/*  var satisfactionCD1 = 0;
+  var allArrayCD1 = [];
+    sprintsCD1 = [0, 0, 0, 0];
+  for (var i = 0; i < data['CDMX']['2017-1'].ratings.length ; i++) {
+      var cumpleCD1 = data['CDMX']['2017-1'].ratings[i].student.cumple;
+      var  superaCD1= data['CDMX']['2017-1'].ratings[i].student.supera;
+      var bothCD1 = cumpleCD1 + superaCD1;
+      satisfactionCD1 += bothCD1;
+      allArrayCD1[i] = data['CDMX']['2017-1'].ratings[i].student.cumple;
+  }
+    var totalCD1 = (satisfactionCD1 / 3)
+    for (var i = 0; i < data['CDMX']['2017-1'].ratings.length; i++) {
+      sprintsCD1[i] = allArrayCD1[i];
+  }
+*/
+
+
+var activeGDL2 = data['GDL']['2017-1'].students;
+    var activeG2=activeGDL2.filter(function(student){return student.active}).length;
+
 var activeCDMX1 = data['CDMX']['2017-1'].students;
-    activeCD1=activeCDMX1.filter(function(student){return student.active}).length;
-    for(var i = 0; i < activeCDMX1.length; i++){
-    }
+    var activeCD1=activeCDMX1.filter(function(student){return student.active}).length;
+
 var activeCDMX2 = data['CDMX']['2017-2'].students;
-    activeCD2=activeCDMX2.filter(function(student){return student.active}).length;
-    for(var i = 0; i < activeCDMX2.length; i++){
-    }
+    var activeCD2=activeCDMX2.filter(function(student){return student.active}).length;
+
 var activeLIM1 = data['LIM']['2016-2'].students;
-    activeLI1=activeLIM1.filter(function(student){return student.active}).length;
-    for(var i = 0; i < activeLIM1.length; i++){
-    }
+    var activeLI1=activeLIM1.filter(function(student){return student.active}).length;
+
 var activeLIM2 = data['LIM']['2017-1'].students;
-    activeLI2=activeLIM2.filter(function(student){return student.active}).length;
-    for(var i = 0; i < activeLIM2.length; i++){
-    }
+    var activeLI2=activeLIM2.filter(function(student){return student.active}).length;
+
 var activeLIM3 = data['LIM']['2017-2'].students;
-    activeLI3=activeLIM3.filter(function(student){return student.active}).length;
-    for(var i = 0; i < activeLIM3.length; i++){
-    }
+    var activeLI3=activeLIM3.filter(function(student){return student.active}).length;
+
 var activeSCL1 = data['SCL']['2016-2'].students;
-    activeSC1=activeSCL1.filter(function(student){return student.active}).length;
-    for(var i = 0; i < activeSCL1.length; i++){
-    }
+    var activeSC1=activeSCL1.filter(function(student){return student.active}).length;
+
 var activeSCL2 = data['SCL']['2017-1'].students;
-    activeSC2=activeSCL2.filter(function(student){return student.active}).length;
-    for(var i = 0; i < activeSCL2.length; i++){
-    }
+    var activeSC2=activeSCL2.filter(function(student){return student.active}).length;
+
 var activeSCL3 = data['SCL']['2017-2'].students;
-    activeSC3=activeSCL3.filter(function(student){return student.active}).length;
-    for(var i = 0; i < activeSCL3.length; i++){
-    }
+    var activeSC3=activeSCL3.filter(function(student){return student.active}).length;
+
+
 //Cargamos Los Complementos Para las graficas
 google.load('visualization', '1.0', {'packages':['corechart']});
 // Grafica de Estudiantes activas por sede
@@ -56,7 +83,7 @@ function drawActive(){
       dat.addColumn('string', 'Ciudad');
       dat.addColumn('number', 'Estudiantes');
       dat.addRows([
-          ['GDL', activeG1],
+          ['GDL', activeG1 + activeG2],
           ['MEX', activeCD1 + activeCD2],
           ['LIM', activeLI1+activeLI2 + activeLI3],
           ['SCL', activeSC1+activeSC2+activeSC3],
@@ -79,7 +106,7 @@ function drawNoActive(){
       dat.addColumn('string', 'Ciudad');
       dat.addColumn('number', 'Estudiantes');
       dat.addRows([
-          ['GDL', allGDL1-activeG1],
+          ['GDL', (allGDL1+allGDL2)-(activeG1+activeG2)],
           ['MEX',(allCDMX1+allCDMX2)-(activeCD1+activeCD2)],
           ['LIM', (allLIM1+allLIM2+allLIM3)-(activeLI1+activeLI2 + activeLI3)],
           ['SCL', (allSCL1+allSCL2+allSCL3)-(activeSC1+activeSC2+activeSC3)],
@@ -100,7 +127,9 @@ function drawActiveGDL(){
     dat.addColumn('string', 'Ciudad');
     dat.addColumn('number', 'Estudiantes');
     dat.addRows([
-          ['GDL1', activeG1],]);
+          ['GDL1', activeG1],
+          ['GDL2', activeG2],
+        ]);
 
   var options = {'title':'Estudiantes activas por generacion',
                        'width':600,
@@ -178,6 +207,7 @@ function drawNoActiveGDL(){
       dat.addColumn('number', 'Estudiantes');
       dat.addRows([
           ['GDL1', allGDL1-activeG1],
+          ['GDL1', allGDL2-activeG2],
       ]);
   var options = {'title':' Estudiantes no activas por generacion',
                        'width':600,
@@ -250,276 +280,38 @@ function drawNoActiveSCL(){
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveSCL'));
   grafica.draw(dat, options);
 }
-// Obtenemos los datos de los Profesores y su promedio por generacion
-//GDL 1  datos para grafica PROMEDIO ****scoreJG1****
-var ratingTG1 = [];
-var teacherG1 = 0;
-for (var i = 0; i < data['GDL']['2017-1'].ratings.length ; i++) {
-    var scoreTG1 = data['GDL']['2017-1'].ratings[i].teacher;
-    teacherG1 += scoreTG1;
-    ratingTG1[i] = data['GDL']['2017-1'].ratings[i].teacher;
-}
-var scoreTG1 = (teacherG1 / 3);
-// Obtenemos los datos de los Jedi y su promedio por generacion
-var ratingJG1 = [];
-var jediG1 = 0;
-for (var i = 0; i < data['GDL']['2017-1'].ratings.length ; i++) {
-    var scoreJG1 = data['GDL']['2017-1'].ratings[i].jedi;
-    jediG1 += scoreJG1;
-    ratingJG1[i] = data['GDL']['2017-1'].ratings[i].jedi;
-}
-var scoreJG1 = (jediG1 / 3);
-//CDMX1 Profes
-var ratingTCM1 = [];
-var teacherCM1 = 0;
-for (var i = 0; i < data['CDMX']['2017-1'].ratings.length; i++) {
-    var scoreTCM1 = data['CDMX']['2017-1'].ratings[i].teacher;
-    teacherCM1 += scoreTCM1;
-    ratingTCM1[i] = data['CDMX']['2017-1'].ratings[i].teacher;
-}
-var scoreTCM1 = (teacherCM1 / 3);
-//CDMX1 Jedi
-var ratingJCM1 = [];
-var jediCM1 = 0;
-for (var i = 0; i < data['CDMX']['2017-1'].ratings.length; i++) {
-    var scoreJCM1 = data['CDMX']['2017-1'].ratings[i].jedi;
-        jediCM1 += scoreJCM1;
-        ratingJCM1[i] = data['CDMX']['2017-1'].ratings[i].jedi;
-}
-var scoreJCM1 = (jediCM1 / 3);
-//CDMX2 Profes
-var ratingTCM2 = [];
-var teacherCM2 = 0;
-for (var i = 0; i < data['CDMX']['2017-2'].ratings.length; i++) {
-    var scoreTCM2 = data['CDMX']['2017-2'].ratings[i].teacher;
-    teacherCM2 += scoreTCM2;
-    ratingTCM2[i] = data['CDMX']['2017-2'].ratings[i].teacher;
-}
-var scoreTCM2 = (teacherCM2 / 3);
-//CDMX2 Jedi
-var ratingJCM2 = [];
-var jediCM2 = 0;
-for (var i = 0; i < data['CDMX']['2017-2'].ratings.length; i++) {
-    var scoreJCM2 = data['CDMX']['2017-2'].ratings[i].jedi;
-    jediCM2 += scoreJCM2;
-    ratingJCM2[i] = data['CDMX']['2017-2'].ratings[i].jedi;
-}
-var scoreJCM2 = (jediCM2 / 3);
-//LIM1 Profes
-var ratingTLM1 = [];
-var teacherLM1 = 0;
-for (var i = 0; i < data['LIM']['2016-2'].ratings.length; i++) {
-    var scoreTLM1 = data['LIM']['2016-2'].ratings[i].teacher;
-    teacherLM1 += scoreTLM1;
-    ratingTLM1[i] = data['LIM']['2016-2'].ratings[i].teacher;
-}
-var scoreTLM1 = (teacherLM1 / 2);
-//LIM1 Jedi
-var ratingJLM1 = [];
-var jediLM1 = 0;
-for (var i = 0; i < data['LIM']['2016-2'].ratings.length; i++) {
-    var scoreJLM1 = data['LIM']['2016-2'].ratings[i].jedi;
-    jediLM1 += scoreJLM1;
-    ratingJLM1[i] = data['LIM']['2016-2'].ratings[i].jedi;
-}
-var scoreJLM1 = (jediLM1 / 2);
-    //LIM2 Profes
-var ratingTLM2 = [];
-var teacherLM2 = 0;
-for (var i = 0; i < data['LIM']['2017-1'].ratings.length; i++) {
-    var scoreTLM2 = data['LIM']['2017-1'].ratings[i].teacher;
-    teacherLM2 += scoreTLM2;
-    ratingTLM2[i] = data['LIM']['2017-1'].ratings[i].teacher;
-}
-var scoreTLM2 = (teacherLM2 / 4);
-    //LIM2 Jedi
-var ratingJLM2 = [];
-var jediLM2 = 0;
-for (var i = 0; i < data['LIM']['2017-1'].ratings.length; i++) {
-    var scoreJLM2 = data['LIM']['2017-1'].ratings[i].jedi;
-    jediLM2 += scoreJLM2;
-    ratingJLM2[i] = data['LIM']['2017-1'].ratings[i].jedi;
-}
-var scoreJLM2 = (jediLM2 / 4);
-    //LIM3 Profes
-var ratingTLM3 = [];
-var teacherLM3 = 0;
-
-for (var i = 0; i < data['LIM']['2017-2'].ratings.length; i++) {
-    var scoreTLM3 = data['LIM']['2017-2'].ratings[i].teacher;
-    teacherLM3 += scoreTLM3;
-    ratingTLM3[i] = data['LIM']['2017-2'].ratings[i].teacher;
-}
-var scoreTLM3 = (teacherLM3 / 2);
-    //LIM3 Jedi
-var ratingJLM3 = [];
-var jediLM3 = 0;
-for (var i = 0; i < data['LIM']['2017-2'].ratings.length; i++) {
-    var scoreJLM3 = data['LIM']['2017-2'].ratings[i].jedi;
-    jediLM3 += scoreJLM3;
-    ratingJLM3[i] = data['LIM']['2017-2'].ratings[i].jedi;
-}
-var scoreJLM3 = (jediLM3 /2);
-    //SCL1 Profes
-var ratingTSC1 = [];
-var teacherSC1 = 0;
-for (var i = 0; i < data['SCL']['2016-2'].ratings.length; i++) {
-    var scoreTSC1 = data['SCL']['2016-2'].ratings[i].teacher;
-    teacherSC1 += scoreTSC1;
-    ratingTSC1[i] = data['SCL']['2016-2'].ratings[i].teacher;
-}
-var scoreTSC1 = (teacherSC1 / 4);
-    //SCL1 Jedi
-var ratingJSC1 = [];
-var jediSC1 = 0;
-for (var i = 0; i < data['SCL']['2016-2'].ratings.length; i++) {
-    var scoreJSC1 = data['SCL']['2016-2'].ratings[i].jedi;
-    jediSC1 += scoreJSC1;
-    ratingJSC1[i] = data['SCL']['2016-2'].ratings[i].jedi;
-}
-var scoreJSC1 = (jediSC1 / 4);
-    //SCL2 Profes
-var ratingTSC2 = [];
-var teacherSC2 = 0;
-for (var i = 0; i < data['SCL']['2017-1'].ratings.length; i++) {
-    var scoreTSC2 = data['SCL']['2017-1'].ratings[i].teacher;
-    teacherSC2 += scoreTSC2;
-    ratingTSC2[i] = data['SCL']['2017-1'].ratings[i].teacher;
-}
-var scoreTSC2 = (teacherSC2 / 3);
-    //SCL2 Jedi
-var ratingJSC2 = [];
-var jediSC2 = 0;
-for (var i = 0; i < data['SCL']['2017-1'].ratings.length; i++) {
-    var scoreJSC2 = data['SCL']['2017-1'].ratings[i].jedi;
-    jediSC2 += scoreJSC2;
-    ratingJSC2[i] = data['SCL']['2017-1'].ratings[i].jedi;
-}
-var scoreJSC2 = (jediSC2 / 3);
-    //SCL3 Profes
-var ratingTSC3 = [];
-var teacherSC3 = 0;
-for (var i = 0; i < data['SCL']['2017-2'].ratings.length; i++) {
-    var scoreTSC3 = data['SCL']['2017-2'].ratings[i].teacher;
-    teacherSC3 += scoreTSC3;
-    ratingTSC3[i] = data['SCL']['2017-2'].ratings[i].teacher;
-}
-var scoreTSC3 = (teacherSC3 / 2);
-    //SCL3 Jedi
-var ratingJSC3 = [];
-var jediSC3 = 0;
-for (var i = 0; i < data['SCL']['2017-2'].ratings.length; i++) {
-    var scoreJSC3 = data['SCL']['2017-2'].ratings[i].jedi;
-    jediSC3 += scoreJSC3;
-    ratingJSC3[i] = data['SCL']['2017-2'].ratings[i].jedi;
-}
-var scoreJSC3 = (jediSC3 / 2);
-// Grafica de Promedio de profesores por sede
-google.setOnLoadCallback(averageTeach);
-function averageTeach(){
-  var dat = new google.visualization.DataTable();
-      dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
-      dat.addRows([
-          ['GDL', scoreTG1],
-          ['MEX', (scoreJCM1 + scoreJCM2)/2],
-          ['LIM', (scoreTLM1+scoreTLM2+scoreTLM3)/3],
-          ['SCL', (scoreTSC1+scoreTSC2+scoreTSC3)/3],
-      ]);
-  var options = {'title':'Promedio profesores por sede', //titulo de la grafica
-                       'width':500, //tamaños
-                       'height':350,
-                        colors:['#F2D7D5','#E6B0AA','#D98880','#CD6155'],
-                        is3D: true};
-  var grafica = new google.visualization.PieChart(document.getElementById('chartAveTeach')); //en que div del html ira (charActive)
-  grafica.draw(dat, options);
-}
-// Grafica de Promedio de profesores por Generacion
-google.setOnLoadCallback(averageTeach1);
-function averageTeach1(){
-  var dat = new google.visualization.DataTable();
-      dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
-      dat.addRows([
-          ['GDL1', scoreTG1],
-          ['MEX1', scoreTCM1],
-          ['MEX2', scoreTCM2],
-          ['LIM1', scoreTLM1],
-          ['LIM2', scoreTLM2],
-          ['LIM3', scoreTLM3],
-          ['SCL1', scoreTSC1],
-          ['SCL2', scoreTSC2],
-          ['SCL3', scoreTSC3],
-      ]);
-  var options = {'title':'Promedio profesores por generación',
-                      'width':550,
-                      'height':350,
-                      legend: 'none',
-                      colors:['#CD6155']};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartAveTeach1'));
-  grafica.draw(dat, options);
-}
-// Grafica de Promedio de jedi por sede
-google.setOnLoadCallback(averageJedi);
-function averageJedi(){
-  var dat = new google.visualization.DataTable();
-      dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
-      dat.addRows([
-          ['GDL', scoreJG1],
-          ['MEX', (scoreJCM1 + scoreJCM2)/2],
-          ['LIM', (scoreJLM1+scoreJLM2+scoreJLM3)/3],
-          ['SCL', (scoreJSC1+scoreJSC2+scoreJSC3)/3],
-      ]);
-  var options = {'title':'Promedio jedi por sede', //titulo de la grafica
-                       'width':500, //tamaños
-                       'height':350,
-                       colors:['#CD6155','#D98880','#E6B0AA','#F2D7D5'],
-                       is3D: true};
-  var grafica = new google.visualization.PieChart(document.getElementById('chartAveJedi')); //en que div del html ira (charActive)
-  grafica.draw(dat, options);
-}
-// Grafica de Promedio de jedi por Generacion
-google.setOnLoadCallback(averageJedi1);
-function averageJedi1(){
-  var dat = new google.visualization.DataTable();
-      dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
-      dat.addRows([
-          ['GDL1', scoreJG1],
-          ['MEX1', scoreJCM1],
-          ['MEX2', scoreJCM2],
-          ['LIM1', scoreTLM1],
-          ['LIM2', scoreJLM2],
-          ['LIM3', scoreJLM3],
-          ['SCL1', scoreJSC1],
-          ['SCL2', scoreJSC2],
-          ['SCL3', scoreJSC3],
-      ]);
-  var options = {'title':'Promedio jedi por Generacion',
-                       'width':550,
-                       'height':350,
-                       legend: 'none',
-                       colors: ['#D98880']};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartAveJedi1'));
-  grafica.draw(dat, options);
-}
 // Obteniendo Datos Sobre La satisfaccion De Las estudiantes Cumple + supera
 //GDL1
-
+var satisfactionG1 = 0;
 var allArrayG1 = [];
   sprintsG1 = [0, 0, 0, 0];
-var satisfactionG1 = 0;
-for (var i = 0; i < data['GDL']['2017-1'].ratings.length ; i++) {
-    var superaG1=data['GDL']['2017-1'].ratings[i].student.supera;
-    var cumpleG1=data['GDL']['2017-1'].ratings[i].student.cumple;
+for (var i = 0; i < data['GDL']['2016-2'].ratings.length ; i++) {
+    var superaG1=data['GDL']['2016-2'].ratings[i].student.supera;
+    var cumpleG1=data['GDL']['2016-2'].ratings[i].student.cumple;
     var bothG1 = cumpleG1 + superaG1;
     satisfactionG1 += bothG1;
-    allArrayG1[i] = data['GDL']['2017-1'].ratings[i].student.cumple;
-}
-var totalG1 = (satisfactionG1 / 3)
-for (var i = 0; i < data['GDL']['2017-1'].ratings.length; i++) {
+    allArrayG1[i] = data['GDL']['2016-2'].ratings[i].student.cumple;
+    }
+
+var totalG1 = (satisfactionG1 / 4)
+for (var i = 0; i < data['GDL']['2016-2'].ratings.length; i++) {
     sprintsG1[i] = allArrayG1[i];
+}
+
+//GDL2
+var satisfactionG2 = 0;
+var allArrayG2 = [];
+  sprintsG2 = [0, 0, 0, 0];
+for (var i = 0; i < data['GDL']['2017-1'].ratings.length ; i++) {
+    var superaG2=data['GDL']['2017-1'].ratings[i].student.supera;
+    var cumpleG2=data['GDL']['2017-1'].ratings[i].student.cumple;
+    var bothG2 = cumpleG2 + superaG2;
+    satisfactionG2 += bothG2;
+    allArrayG2[i] = data['GDL']['2017-1'].ratings[i].student.cumple;
+}
+var totalG2 = (satisfactionG2 / 3)
+for (var i = 0; i < data['GDL']['2017-1'].ratings.length; i++) {
+    sprintsG2[i] = allArrayG2[i];
 }
 //CDMX1
 var satisfactionCD1 = 0;
@@ -648,7 +440,7 @@ function averageSat(){
       dat.addColumn('string', 'Ciudad');
       dat.addColumn('number', 'Porcentaje');
       dat.addRows([
-          ['GDL', totalG1],
+          ['GDL', (totalG1 + totalG2)/2],
           ['MEX', (totalCD1 + totalCD2)/2],
           ['LIM', (totalLI1+totalLI2+totalLI3)/3],
           ['SCL', (totalSC1+totalSC2+totalSC3)/3],
@@ -656,8 +448,9 @@ function averageSat(){
   var options = {'title':'Estudiantes satisfechas por sede',
                        'width':500,
                        'height':300,
+                       legend: 'none',
                        colors: ['#1F618D', '#2471A3', '#2980B9', '#5499C7']};
-  var grafica = new google.visualization.PieChart(document.getElementById('averageSat'));
+  var grafica = new google.visualization.BarChart(document.getElementById('averageSat'));
   grafica.draw(dat, options);
 }
 // Grafica de Promedio Sobre La satisfaccion De Las estudiantes Cumple + supera por Generacion GDL
@@ -668,12 +461,14 @@ function averageSatGDL(){
       dat.addColumn('number', 'Promedio');
       dat.addRows([
           ['GDL1', totalG1],
+          ['GDL2', totalG2],
       ]);
   var options = {'title':'Estudiantes satisfechas por generación',
                        'width':500,
                        'height':300,
+                       legend: 'none',
                        colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
-  var grafica = new google.visualization.PieChart(document.getElementById('averageSatGDL'));
+  var grafica = new google.visualization.BarChart(document.getElementById('averageSatGDL'));
   grafica.draw(dat, options);
 }
 
@@ -690,8 +485,9 @@ function averageSatMEX(){
   var options = {'title':'Estudiantes satisfechas por generación',
                        'width':500,
                        'height':300,
+                       legend: 'none',
                        colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
-  var grafica = new google.visualization.PieChart(document.getElementById('averageSatMEX'));
+  var grafica = new google.visualization.BarChart(document.getElementById('averageSatMEX'));
   grafica.draw(dat, options);
 }
 
@@ -709,11 +505,13 @@ function averageSatLIM(){
   var options = {'title':'Estudiantes satisfechas por generación',
                        'width':500,
                        'height':300,
+                       legend: 'none',
                        colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
-  var grafica = new google.visualization.PieChart(document.getElementById('averageSatLIM'));
+  var grafica = new google.visualization.BarChart(document.getElementById('averageSatLIM'));
   grafica.draw(dat, options);
 }
 
+// Grafica de Promedio Sobre La satisfaccion De Las estudiantes Cumple + supera por Generacion SCL
 google.setOnLoadCallback(averageSatSCL);
 function averageSatSCL(){
   var dat = new google.visualization.DataTable();
@@ -727,7 +525,286 @@ function averageSatSCL(){
   var options = {'title':'Estudiantes satisfechas por generación',
                        'width':500,
                        'height':300,
+                       legend: 'none',
                        colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
-  var grafica = new google.visualization.PieChart(document.getElementById('averageSatSCL'));
+  var grafica = new google.visualization.BarChart(document.getElementById('averageSatSCL'));
+  grafica.draw(dat, options);
+}
+
+// Obtenemos los datos de los Profesores y su promedio por generacion
+//GDL1 Profe
+var ratingTG1 = [];
+var teacherG1 = 0;
+for (var i = 0; i < data['GDL']['2016-2'].ratings.length ; i++) {
+    var scoreTG1 = data['GDL']['2016-2'].ratings[i].teacher;
+    teacherG1 += scoreTG1;
+    ratingTG1[i] = data['GDL']['2016-2'].ratings[i].teacher;
+}
+var scoreTG1 = (teacherG1 / 4);
+
+//GDL 2 Profe
+var ratingTG2 = [];
+var teacherG2 = 0;
+for (var i = 0; i < data['GDL']['2017-1'].ratings.length ; i++) {
+    var scoreTG2 = data['GDL']['2017-1'].ratings[i].teacher;
+    teacherG2 += scoreTG2;
+    ratingTG2[i] = data['GDL']['2017-1'].ratings[i].teacher;
+}
+var scoreTG2 = (teacherG2 / 3);
+
+// GDL1 Jedi
+var ratingJG1 = [];
+var jediG1 = 0;
+for (var i = 0; i < data['GDL']['2016-2'].ratings.length ; i++) {
+    var scoreJG1 = data['GDL']['2016-2'].ratings[i].jedi;
+    jediG1 += scoreJG1;
+    ratingJG1[i] = data['GDL']['2016-2'].ratings[i].jedi;
+}
+var scoreJG1 = (jediG1 / 4);
+// GDL2 Jedi
+var ratingJG2 = [];
+var jediG2 = 0;
+for (var i = 0; i < data['GDL']['2017-1'].ratings.length ; i++) {
+    var scoreJG2 = data['GDL']['2017-1'].ratings[i].jedi;
+    jediG2 += scoreJG2;
+    ratingJG2[i] = data['GDL']['2017-1'].ratings[i].jedi;
+}
+var scoreJG2 = (jediG2 / 3);
+//CDMX1 Profes
+var ratingTCM1 = [];
+var teacherCM1 = 0;
+for (var i = 0; i < data['CDMX']['2017-1'].ratings.length; i++) {
+    var scoreTCM1 = data['CDMX']['2017-1'].ratings[i].teacher;
+    teacherCM1 += scoreTCM1;
+    ratingTCM1[i] = data['CDMX']['2017-1'].ratings[i].teacher;
+}
+var scoreTCM1 = (teacherCM1 / 3);
+//CDMX2 Profes
+var ratingTCM2 = [];
+var teacherCM2 = 0;
+for (var i = 0; i < data['CDMX']['2017-2'].ratings.length; i++) {
+    var scoreTCM2 = data['CDMX']['2017-2'].ratings[i].teacher;
+    teacherCM2 += scoreTCM2;
+    ratingTCM2[i] = data['CDMX']['2017-2'].ratings[i].teacher;
+}
+var scoreTCM2 = (teacherCM2 / 3);
+//CDMX1 Jedi
+var ratingJCM1 = [];
+var jediCM1 = 0;
+for (var i = 0; i < data['CDMX']['2017-1'].ratings.length; i++) {
+    var scoreJCM1 = data['CDMX']['2017-1'].ratings[i].jedi;
+        jediCM1 += scoreJCM1;
+        ratingJCM1[i] = data['CDMX']['2017-1'].ratings[i].jedi;
+}
+var scoreJCM1 = (jediCM1 / 3);
+//CDMX2 Jedi
+var ratingJCM2 = [];
+var jediCM2 = 0;
+for (var i = 0; i < data['CDMX']['2017-2'].ratings.length; i++) {
+    var scoreJCM2 = data['CDMX']['2017-2'].ratings[i].jedi;
+    jediCM2 += scoreJCM2;
+    ratingJCM2[i] = data['CDMX']['2017-2'].ratings[i].jedi;
+}
+var scoreJCM2 = (jediCM2 / 3);
+//LIM1 Profes
+var ratingTLM1 = [];
+var teacherLM1 = 0;
+for (var i = 0; i < data['LIM']['2016-2'].ratings.length; i++) {
+    var scoreTLM1 = data['LIM']['2016-2'].ratings[i].teacher;
+    teacherLM1 += scoreTLM1;
+    ratingTLM1[i] = data['LIM']['2016-2'].ratings[i].teacher;
+}
+var scoreTLM1 = (teacherLM1 / 2);
+//LIM2 Profes
+var ratingTLM2 = [];
+var teacherLM2 = 0;
+for (var i = 0; i < data['LIM']['2017-1'].ratings.length; i++) {
+    var scoreTLM2 = data['LIM']['2017-1'].ratings[i].teacher;
+    teacherLM2 += scoreTLM2;
+    ratingTLM2[i] = data['LIM']['2017-1'].ratings[i].teacher;
+}
+var scoreTLM2 = (teacherLM2 / 4);
+//LIM3 Profes
+var ratingTLM3 = [];
+var teacherLM3 = 0;
+
+for (var i = 0; i < data['LIM']['2017-2'].ratings.length; i++) {
+var scoreTLM3 = data['LIM']['2017-2'].ratings[i].teacher;
+teacherLM3 += scoreTLM3;
+ratingTLM3[i] = data['LIM']['2017-2'].ratings[i].teacher;
+}
+var scoreTLM3 = (teacherLM3 / 2);
+//LIM1 Jedi
+var ratingJLM1 = [];
+var jediLM1 = 0;
+for (var i = 0; i < data['LIM']['2016-2'].ratings.length; i++) {
+    var scoreJLM1 = data['LIM']['2016-2'].ratings[i].jedi;
+    jediLM1 += scoreJLM1;
+    ratingJLM1[i] = data['LIM']['2016-2'].ratings[i].jedi;
+}
+var scoreJLM1 = (jediLM1 / 2);
+//LIM2 Jedi
+var ratingJLM2 = [];
+var jediLM2 = 0;
+for (var i = 0; i < data['LIM']['2017-1'].ratings.length; i++) {
+    var scoreJLM2 = data['LIM']['2017-1'].ratings[i].jedi;
+    jediLM2 += scoreJLM2;
+    ratingJLM2[i] = data['LIM']['2017-1'].ratings[i].jedi;
+}
+var scoreJLM2 = (jediLM2 / 4);
+
+//LIM3 Jedi
+var ratingJLM3 = [];
+var jediLM3 = 0;
+for (var i = 0; i < data['LIM']['2017-2'].ratings.length; i++) {
+    var scoreJLM3 = data['LIM']['2017-2'].ratings[i].jedi;
+    jediLM3 += scoreJLM3;
+    ratingJLM3[i] = data['LIM']['2017-2'].ratings[i].jedi;
+}
+var scoreJLM3 = (jediLM3 /2);
+//SCL1 Profes
+var ratingTSC1 = [];
+var teacherSC1 = 0;
+for (var i = 0; i < data['SCL']['2016-2'].ratings.length; i++) {
+    var scoreTSC1 = data['SCL']['2016-2'].ratings[i].teacher;
+    teacherSC1 += scoreTSC1;
+    ratingTSC1[i] = data['SCL']['2016-2'].ratings[i].teacher;
+}
+var scoreTSC1 = (teacherSC1 / 4);
+//SCL2 Profes
+var ratingTSC2 = [];
+var teacherSC2 = 0;
+for (var i = 0; i < data['SCL']['2017-1'].ratings.length; i++) {
+    var scoreTSC2 = data['SCL']['2017-1'].ratings[i].teacher;
+    teacherSC2 += scoreTSC2;
+    ratingTSC2[i] = data['SCL']['2017-1'].ratings[i].teacher;
+}
+var scoreTSC2 = (teacherSC2 / 3);
+//SCL3 Profes
+var ratingTSC3 = [];
+var teacherSC3 = 0;
+for (var i = 0; i < data['SCL']['2017-2'].ratings.length; i++) {
+var scoreTSC3 = data['SCL']['2017-2'].ratings[i].teacher;
+teacherSC3 += scoreTSC3;
+ratingTSC3[i] = data['SCL']['2017-2'].ratings[i].teacher;
+}
+var scoreTSC3 = (teacherSC3 / 2);
+//SCL1 Jedi
+var ratingJSC1 = [];
+var jediSC1 = 0;
+for (var i = 0; i < data['SCL']['2016-2'].ratings.length; i++) {
+    var scoreJSC1 = data['SCL']['2016-2'].ratings[i].jedi;
+    jediSC1 += scoreJSC1;
+    ratingJSC1[i] = data['SCL']['2016-2'].ratings[i].jedi;
+}
+var scoreJSC1 = (jediSC1 / 4);
+//SCL2 Jedi
+var ratingJSC2 = [];
+var jediSC2 = 0;
+for (var i = 0; i < data['SCL']['2017-1'].ratings.length; i++) {
+    var scoreJSC2 = data['SCL']['2017-1'].ratings[i].jedi;
+    jediSC2 += scoreJSC2;
+    ratingJSC2[i] = data['SCL']['2017-1'].ratings[i].jedi;
+}
+var scoreJSC2 = (jediSC2 / 3);
+//SCL3 Jedi
+var ratingJSC3 = [];
+var jediSC3 = 0;
+for (var i = 0; i < data['SCL']['2017-2'].ratings.length; i++) {
+    var scoreJSC3 = data['SCL']['2017-2'].ratings[i].jedi;
+    jediSC3 += scoreJSC3;
+    ratingJSC3[i] = data['SCL']['2017-2'].ratings[i].jedi;
+}
+var scoreJSC3 = (jediSC3 / 2);
+// Grafica de Promedio de profesores por sede
+google.setOnLoadCallback(averageTeach);
+function averageTeach(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Estudiantes');
+      dat.addRows([
+          ['GDL', (scoreTG1 + scoreTG2)/2],
+          ['MEX', (scoreTCM1 + scoreTCM2)/2],
+          ['LIM', (scoreTLM1+scoreTLM2+scoreTLM3)/3],
+          ['SCL', (scoreTSC1+scoreTSC2+scoreTSC3)/3],
+      ]);
+  var options = {'title':'Promedio profesores por sede', //titulo de la grafica
+                       'width':500, //tamaños
+                       'height':350,
+                       legend: 'none',
+                       colors:['#E6B0AA','#D98880','#CD6155', '#F2D7D5']};
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartAveTeach')); //en que div del html ira (charActive)
+  grafica.draw(dat, options);
+}
+// Grafica de Promedio de profesores por Generacion
+google.setOnLoadCallback(averageTeach1);
+function averageTeach1(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Estudiantes');
+      dat.addRows([
+          ['GDL1', scoreTG1],
+          ['GDL2', scoreTG2],
+          ['MEX1', scoreTCM1],
+          ['MEX2', scoreTCM2],
+          ['LIM1', scoreTLM1],
+          ['LIM2', scoreTLM2],
+          ['LIM3', scoreTLM3],
+          ['SCL1', scoreTSC1],
+          ['SCL2', scoreTSC2],
+          ['SCL3', scoreTSC3],
+      ]);
+  var options = {'title':'Promedio profesores por generación',
+                      'width':550,
+                      'height':350,
+                      legend: 'none',
+                      colors:['#CD6155']};
+  var grafica = new google.visualization.BarChart(document.getElementById('chartAveTeach1'));
+  grafica.draw(dat, options);
+}
+// Grafica de Promedio de jedi por sede
+google.setOnLoadCallback(averageJedi);
+function averageJedi(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Estudiantes');
+      dat.addRows([
+          ['GDL', (scoreJG1 + scoreJG2)/2],
+          ['MEX', (scoreJCM1 + scoreJCM2)/2],
+          ['LIM', (scoreJLM1+scoreJLM2+scoreJLM3)/3],
+          ['SCL', (scoreJSC1+scoreJSC2+scoreJSC3)/3],
+      ]);
+  var options = {'title':'Promedio jedi por sede', //titulo de la grafica
+                       'width':500, //tamaños
+                       'height':350,
+                       legend: 'none',
+                       colors:['#CD6155','#D98880','#E6B0AA','#F2D7D5']};
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartAveJedi')); //en que div del html ira (charActive)
+  grafica.draw(dat, options);
+}
+// Grafica de Promedio de jedi por Generacion
+google.setOnLoadCallback(averageJedi1);
+function averageJedi1(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Estudiantes');
+      dat.addRows([
+          ['GDL1', scoreJG1],
+          ['GDL2', scoreJG2],
+          ['MEX1', scoreJCM1],
+          ['MEX2', scoreJCM2],
+          ['LIM1', scoreTLM1],
+          ['LIM2', scoreJLM2],
+          ['LIM3', scoreJLM3],
+          ['SCL1', scoreJSC1],
+          ['SCL2', scoreJSC2],
+          ['SCL3', scoreJSC3],
+      ]);
+  var options = {'title':'Promedio jedi por Generacion',
+                       'width':550,
+                       'height':350,
+                       legend: 'none',
+                       colors: ['#D98880']};
+  var grafica = new google.visualization.BarChart(document.getElementById('chartAveJedi1'));
   grafica.draw(dat, options);
 }
