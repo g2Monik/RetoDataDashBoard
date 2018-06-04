@@ -61,35 +61,14 @@ function drawActive(){
           ['LIM', activeLI1+activeLI2 + activeLI3],
           ['SCL', activeSC1+activeSC2+activeSC3],
       ]);
+
   var options = {'title':'Estudiantes activas por sede', //titulo de la grafica
-                       'width':780, //tamaños
-                       'height':380,
-                       colors: ['#91C391']};
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors: ['#1F618D']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartActive')); //en que div del html ira (charActive)
-  grafica.draw(dat, options);
-}
-// Grafica de Estudiantes activas por Generacion
-google.setOnLoadCallback(drawActive1);
-function drawActive1(){
-  var dat = new google.visualization.DataTable();
-    dat.addColumn('string', 'Ciudad');
-    dat.addColumn('number', 'Estudiantes');
-    dat.addRows([
-          ['GDL1', activeG1],
-          ['MEX1', activeCD1],
-          ['MEX2', activeCD2],
-          ['LIM1', activeLI1],
-          ['LIM2', activeLI2],
-          ['LIM3', activeLI3],
-          ['SCL1', activeSC1],
-          ['SCL2', activeSC2],
-          ['SCL3', activeSC3],
-      ]);
-  var options = {'title':'Estudiantes activas por generacion',
-                       'width':680,
-                       'height':480,
-                       colors: ['#76D7C4']};
-  var grafica = new google.visualization.ColumnChart(document.getElementById('chartActive1'));
+
   grafica.draw(dat, options);
 }
 
@@ -106,33 +85,169 @@ function drawNoActive(){
           ['SCL', (allSCL1+allSCL2+allSCL3)-(activeSC1+activeSC2+activeSC3)],
       ]);
   var options = {'title':'Estudiantes no activas por sede',
-                       'width':780,
-                       'height':480,
-                       colors: ['#76CDD7']};
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors: ['#1F618D']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActive'));
   grafica.draw(dat, options);
 }
-// Estudiantes No Activas por Generacion
-google.setOnLoadCallback(drawNoActive1);
-function drawNoActive1(){
+
+// Grafica de Estudiantes activas por Generacion GDL
+google.setOnLoadCallback(drawActiveGDL);
+function drawActiveGDL(){
+  var dat = new google.visualization.DataTable();
+    dat.addColumn('string', 'Ciudad');
+    dat.addColumn('number', 'Estudiantes');
+    dat.addRows([
+          ['GDL1', activeG1],]);
+
+  var options = {'title':'Estudiantes activas por generacion',
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors: ['#76D7C4']};
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveGDL'));
+  grafica.draw(dat, options);
+}
+
+// Grafica de Estudiantes activas por Generacion MEX
+google.setOnLoadCallback(drawActiveMEX);
+function drawActiveMEX(){
+  var dat = new google.visualization.DataTable();
+    dat.addColumn('string', 'Ciudad');
+    dat.addColumn('number', 'Estudiantes');
+    dat.addRows([
+          ['MEX1', activeCD1],
+          ['MEX2', activeCD2],
+      ]);
+  var options = {'title':'Estudiantes activas por generacion',
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors: ['#76D7C4']};
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveMEX'));
+  grafica.draw(dat, options);
+}
+
+// Grafica de Estudiantes activas por Generacion LIM
+google.setOnLoadCallback(drawActiveLIM);
+function drawActiveLIM(){
+  var dat = new google.visualization.DataTable();
+    dat.addColumn('string', 'Ciudad');
+    dat.addColumn('number', 'Estudiantes');
+    dat.addRows([
+          ['LIM1', activeLI1],
+          ['LIM2', activeLI2],
+          ['LIM3', activeLI3],
+      ]);
+  var options = {'title':'Estudiantes activas por generacion',
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors: ['#76D7C4']};
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveLIM'));
+  grafica.draw(dat, options);
+}
+
+// Grafica de Estudiantes activas por Generacion SCL
+google.setOnLoadCallback(drawActiveSCL);
+function drawActiveSCL(){
+  var dat = new google.visualization.DataTable();
+    dat.addColumn('string', 'Ciudad');
+    dat.addColumn('number', 'Estudiantes');
+    dat.addRows([
+          ['SCL1', activeSC1],
+          ['SCL2', activeSC2],
+          ['SCL3', activeSC3],
+      ]);
+  var options = {'title':'Estudiantes activas por generacion',
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors: ['#76D7C4']};
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveSCL'));
+  grafica.draw(dat, options);
+}
+
+// Estudiantes No Activas por Generacion GDL
+google.setOnLoadCallback(drawNoActiveGDL);
+function drawNoActiveGDL(){
   var dat = new google.visualization.DataTable();
       dat.addColumn('string', 'Ciudad');
       dat.addColumn('number', 'Estudiantes');
       dat.addRows([
           ['GDL1', allGDL1-activeG1],
+      ]);
+  var options = {'title':' Estudiantes no activas por generacion',
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors:['#76D7C4']};
+
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveGDL'));
+  grafica.draw(dat, options);
+}
+
+// Estudiantes No Activas por Generacion MEX
+google.setOnLoadCallback(drawNoActiveMEX);
+function drawNoActiveMEX(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Estudiantes');
+      dat.addRows([
           ['MEX1', allCDMX1-activeCD1],
           ['MEX2', allCDMX2-activeCD2],
+      ]);
+  var options = {'title':' Estudiantes no activas por generacion',
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors:['#76D7C4']};
+
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveMEX'));
+  grafica.draw(dat, options);
+}
+
+// Estudiantes No Activas por Generacion LIM
+google.setOnLoadCallback(drawNoActiveLIM);
+function drawNoActiveLIM(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Estudiantes');
+      dat.addRows([
           ['LIM1', allLIM1-activeLI1],
           ['LIM2', allLIM2-activeLI2],
           ['LIM3', allLIM3-activeLI3],
+      ]);
+  var options = {'title':' Estudiantes no activas por generacion',
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors:['#76D7C4']};
+
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveLIM'));
+  grafica.draw(dat, options);
+}
+
+// Estudiantes No Activas por Generacion SCL
+google.setOnLoadCallback(drawNoActiveSCL);
+function drawNoActiveSCL(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Estudiantes');
+      dat.addRows([
           ['SCL1', allSCL1-activeSC1],
           ['SCL2', allSCL2-activeSC2],
           ['SCL3', activeSC3-allSCL3], //ignora este dato el lunes hablo con levitha
       ]);
   var options = {'title':' Estudiantes no activas por generacion',
-                       'width':480,
-                       'height':380};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartNoActive1'));
+                       'width':600,
+                       'height':300,
+                       legend: 'none',
+                       colors:['#76D7C4']};
+
+  var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveSCL'));
   grafica.draw(dat, options);
 }
 // Obtenemos los datos de los Profesores y su promedio por generacion
@@ -312,14 +427,13 @@ function averageTeach(){
           ['SCL', (scoreTSC1+scoreTSC2+scoreTSC3)/3],
       ]);
   var options = {'title':'Promedio profesores por sede', //titulo de la grafica
-                       'width':350, //tamaños
-                       'height':380,
-                        colors:['#884EA0','#9B59B6','#AF7AC5','#D7BDE2'],
+                       'width':500, //tamaños
+                       'height':350,
+                        colors:['#F2D7D5','#E6B0AA','#D98880','#CD6155'],
                         is3D: true};
   var grafica = new google.visualization.PieChart(document.getElementById('chartAveTeach')); //en que div del html ira (charActive)
   grafica.draw(dat, options);
 }
-
 // Grafica de Promedio de profesores por Generacion
 google.setOnLoadCallback(averageTeach1);
 function averageTeach1(){
@@ -338,9 +452,10 @@ function averageTeach1(){
           ['SCL3', scoreTSC3],
       ]);
   var options = {'title':'Promedio profesores por generación',
-                       'width':780,
-                       'height':380,
-                        colors: ['#2471A3']};
+                      'width':550,
+                      'height':350,
+                      legend: 'none',
+                      colors:['#CD6155']};
   var grafica = new google.visualization.BarChart(document.getElementById('chartAveTeach1'));
   grafica.draw(dat, options);
 }
@@ -357,9 +472,9 @@ function averageJedi(){
           ['SCL', (scoreJSC1+scoreJSC2+scoreJSC3)/3],
       ]);
   var options = {'title':'Promedio jedi por sede', //titulo de la grafica
-                       'width':350, //tamaños
-                       'height':380,
-                       colors:['#17A589','#1ABC9C','#48C9B0','#76D7C4'],
+                       'width':500, //tamaños
+                       'height':350,
+                       colors:['#CD6155','#D98880','#E6B0AA','#F2D7D5'],
                        is3D: true};
   var grafica = new google.visualization.PieChart(document.getElementById('chartAveJedi')); //en que div del html ira (charActive)
   grafica.draw(dat, options);
@@ -382,8 +497,9 @@ function averageJedi1(){
           ['SCL3', scoreJSC3],
       ]);
   var options = {'title':'Promedio jedi por Generacion',
-                       'width':780,
-                       'height':380,
+                       'width':550,
+                       'height':350,
+                       legend: 'none',
                        colors: ['#D98880']};
   var grafica = new google.visualization.BarChart(document.getElementById('chartAveJedi1'));
   grafica.draw(dat, options);
@@ -535,34 +651,83 @@ function averageSat(){
           ['GDL', totalG1],
           ['MEX', (totalCD1 + totalCD2)/2],
           ['LIM', (totalLI1+totalLI2+totalLI3)/3],
-          ['PER', (totalSC1+totalSC2+totalSC3)/3],
+          ['SCL', (totalSC1+totalSC2+totalSC3)/3],
       ]);
-  var options = {'title':'Satisfaccion Por Sede',
+  var options = {'title':'Estudiantes satisfechas por sede',
                        'width':500,
-                       'height':300};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartSatisf'));
+                       'height':300,
+                       colors: ['#1F618D', '#2471A3', '#2980B9', '#5499C7']};
+  var grafica = new google.visualization.PieChart(document.getElementById('averageSat'));
   grafica.draw(dat, options);
 }
-// Grafica de Promedio de Sobre La satisfaccion De Las estudiantes Cumple + supera por Generacion
-google.setOnLoadCallback(averageSat1);
-function averageSat1(){
+// Grafica de Promedio Sobre La satisfaccion De Las estudiantes Cumple + supera por Generacion GDL
+google.setOnLoadCallback(averageSatGDL);
+function averageSatGDL(){
   var dat = new google.visualization.DataTable();
       dat.addColumn('string', 'Ciudad');
       dat.addColumn('number', 'Promedio');
       dat.addRows([
           ['GDL1', totalG1],
+      ]);
+  var options = {'title':'Estudiantes satisfechas por generación',
+                       'width':500,
+                       'height':300,
+                       colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
+  var grafica = new google.visualization.PieChart(document.getElementById('averageSatGDL'));
+  grafica.draw(dat, options);
+}
+
+// Grafica de Promedio Sobre La satisfaccion De Las estudiantes Cumple + supera por Generacion MEX
+google.setOnLoadCallback(averageSatMEX);
+function averageSatMEX(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Promedio');
+      dat.addRows([
           ['MEX1', totalCD1],
           ['MEX2', totalCD2],
+      ]);
+  var options = {'title':'Estudiantes satisfechas por generación',
+                       'width':500,
+                       'height':300,
+                       colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
+  var grafica = new google.visualization.PieChart(document.getElementById('averageSatMEX'));
+  grafica.draw(dat, options);
+}
+
+// Grafica de Promedio Sobre La satisfaccion De Las estudiantes Cumple + supera por Generacion LIM
+google.setOnLoadCallback(averageSatLIM);
+function averageSatLIM(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Promedio');
+      dat.addRows([
           ['LIM1', totalLI1],
           ['LIM2', totalLI2],
           ['LIM3', totalLI3],
-          ['PER1', totalSC1],
-          ['PER2', totalSC2],
-          ['PER3', totalSC3],
       ]);
-  var options = {'title':'Satisfaccion Por Generacion',
+  var options = {'title':'Estudiantes satisfechas por generación',
                        'width':500,
-                       'height':300};
-  var grafica = new google.visualization.BarChart(document.getElementById('chartSatisf1'));
+                       'height':300,
+                       colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
+  var grafica = new google.visualization.PieChart(document.getElementById('averageSatLIM'));
+  grafica.draw(dat, options);
+}
+
+google.setOnLoadCallback(averageSatSCL);
+function averageSatSCL(){
+  var dat = new google.visualization.DataTable();
+      dat.addColumn('string', 'Ciudad');
+      dat.addColumn('number', 'Promedio');
+      dat.addRows([
+          ['SCL1', totalSC1],
+          ['SCL2', totalSC2],
+          ['SCL3', totalSC3],
+      ]);
+  var options = {'title':'Estudiantes satisfechas por generación',
+                       'width':500,
+                       'height':300,
+                       colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
+  var grafica = new google.visualization.PieChart(document.getElementById('averageSatSCL'));
   grafica.draw(dat, options);
 }

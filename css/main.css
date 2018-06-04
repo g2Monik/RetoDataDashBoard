@@ -50,23 +50,11 @@ header {
 }
 
 /* Main */
-#container, #container1, #container2  {
+#container, #container1, #container2, .containersedes {
   background-color: #F7F7F7;
+  height: 900px;
   position: relative;
   width: 100%;
-}
-
-#container {
-  height: 2000px;
-  top: 10vh;
-}
-
-#container1 {
-  height: 900px;
-}
-
-#container2 {
-  height: 900px;
 }
 
 .logos {
@@ -78,18 +66,10 @@ header {
   width: 25%;
 }
 
-.chart {
-  display: inline-block;
-  height: 300px;
-  left: 5%;
-  padding: 4vh;
-  position: relative;
-  width: 550px;
-  border: 3px solid black;
-}
-
 .chartStatistics{
   display: inline-block;
+  left: 5%;
+  padding: .5vh;
   position: relative;
 }
 
@@ -110,10 +90,7 @@ header {
   position: relative;
 }
 
-.containersedes {
-  display: inline-block;
-  position: relative;
-}
+
 
 
 /* Footer */
