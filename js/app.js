@@ -13,66 +13,38 @@ var allSCL3 = (data['SCL']['2017-2'].students.length);
 //Establecemos las estudiantes activas por sede y generacion
 //tenemos que iterar con el for dentro de los objertos para llegar a la key active
 var activeGDL1 = data['GDL']['2016-2'].students;
-    var activeG1=activeGDL1.filter(function(student){return student.active}).length;
-
-var total = 0;
-var hseGDL = 0;
-var techGDL = 0;
-for(var i = 0; i < allGDL1; i++){
-  for(var j = 0; j < data['GDL']['2016-2'].students[i].sprints.length ; j++){
-    
-  }
-     hseGDL+= data['GDL']['2016-2'].students[i].sprints.hse;
-     techGDL+= data['GDL']['2016-2'].students[i].sprints.tech;
-     total = (hseGDL + techGDL);
-
-    console.log(total);
- }
-
-/*  var satisfactionCD1 = 0;
-  var allArrayCD1 = [];
-    sprintsCD1 = [0, 0, 0, 0];
-  for (var i = 0; i < data['CDMX']['2017-1'].ratings.length ; i++) {
-      var cumpleCD1 = data['CDMX']['2017-1'].ratings[i].student.cumple;
-      var  superaCD1= data['CDMX']['2017-1'].ratings[i].student.supera;
-      var bothCD1 = cumpleCD1 + superaCD1;
-      satisfactionCD1 += bothCD1;
-      allArrayCD1[i] = data['CDMX']['2017-1'].ratings[i].student.cumple;
-  }
-    var totalCD1 = (satisfactionCD1 / 3)
-    for (var i = 0; i < data['CDMX']['2017-1'].ratings.length; i++) {
-      sprintsCD1[i] = allArrayCD1[i];
-  }
-*/
-
+    var activeG1 = activeGDL1.filter(function(student){return student.active}).length;
+    /*var noactiveG1 = activeGDL1.filter(function(student){return !student.active}).length;
+    if (noactiveG1 === false){
+      return name
+    };*/
 
 var activeGDL2 = data['GDL']['2017-1'].students;
-    var activeG2=activeGDL2.filter(function(student){return student.active}).length;
+    var activeG2 = activeGDL2.filter(function(student){return student.active}).length;
 
 var activeCDMX1 = data['CDMX']['2017-1'].students;
-    var activeCD1=activeCDMX1.filter(function(student){return student.active}).length;
+    var activeCD1 = activeCDMX1.filter(function(student){return student.active}).length;
 
 var activeCDMX2 = data['CDMX']['2017-2'].students;
-    var activeCD2=activeCDMX2.filter(function(student){return student.active}).length;
+    var activeCD2 = activeCDMX2.filter(function(student){return student.active}).length;
 
 var activeLIM1 = data['LIM']['2016-2'].students;
-    var activeLI1=activeLIM1.filter(function(student){return student.active}).length;
+    var activeLI1 = activeLIM1.filter(function(student){return student.active}).length;
 
 var activeLIM2 = data['LIM']['2017-1'].students;
-    var activeLI2=activeLIM2.filter(function(student){return student.active}).length;
+    var activeLI2 = activeLIM2.filter(function(student){return student.active}).length;
 
 var activeLIM3 = data['LIM']['2017-2'].students;
-    var activeLI3=activeLIM3.filter(function(student){return student.active}).length;
+    var activeLI3 = activeLIM3.filter(function(student){return student.active}).length;
 
 var activeSCL1 = data['SCL']['2016-2'].students;
-    var activeSC1=activeSCL1.filter(function(student){return student.active}).length;
+    var activeSC1 = activeSCL1.filter(function(student){return student.active}).length;
 
 var activeSCL2 = data['SCL']['2017-1'].students;
-    var activeSC2=activeSCL2.filter(function(student){return student.active}).length;
+    var activeSC2 = activeSCL2.filter(function(student){return student.active}).length;
 
 var activeSCL3 = data['SCL']['2017-2'].students;
-    var activeSC3=activeSCL3.filter(function(student){return student.active}).length;
-
+    var activeSC3 = activeSCL3.filter(function(student){return student.active}).length;
 
 //Cargamos Los Complementos Para las graficas
 google.load('visualization', '1.0', {'packages':['corechart']});
@@ -154,7 +126,7 @@ function drawActiveMEX(){
                        'width':600,
                        'height':300,
                        legend: 'none',
-                       colors: ['#76D7C4']};
+                       colors: ['#F7DC6F']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveMEX'));
   grafica.draw(dat, options);
 }
@@ -174,7 +146,7 @@ function drawActiveLIM(){
                        'width':600,
                        'height':300,
                        legend: 'none',
-                       colors: ['#76D7C4']};
+                       colors: ['#EB984E']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveLIM'));
   grafica.draw(dat, options);
 }
@@ -194,20 +166,20 @@ function drawActiveSCL(){
                        'width':600,
                        'height':300,
                        legend: 'none',
-                       colors: ['#76D7C4']};
+                       colors: ['#7DCEA0']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveSCL'));
   grafica.draw(dat, options);
 }
 
-// Estudiantes No Activas por Generacion GDL
+// % Estudiantes No Activas por Generacion GDL
 google.setOnLoadCallback(drawNoActiveGDL);
 function drawNoActiveGDL(){
   var dat = new google.visualization.DataTable();
       dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
+      dat.addColumn('number', 'Porcentaje');
       dat.addRows([
-          ['GDL1', allGDL1-activeG1],
-          ['GDL1', allGDL2-activeG2],
+          ['GDL1', (allGDL1-activeG1)/allGDL1 * 100],
+          ['GDL2', (allGDL2-activeG2)/allGDL2 * 100],
       ]);
   var options = {'title':' Estudiantes no activas por generacion',
                        'width':600,
@@ -226,14 +198,14 @@ function drawNoActiveMEX(){
       dat.addColumn('string', 'Ciudad');
       dat.addColumn('number', 'Estudiantes');
       dat.addRows([
-          ['MEX1', allCDMX1-activeCD1],
-          ['MEX2', allCDMX2-activeCD2],
+          ['MEX1', (allCDMX1-activeCD1)/allCDMX1 * 100],
+          ['MEX2', (allCDMX2-activeCD2)/allCDMX1 * 100],
       ]);
   var options = {'title':' Estudiantes no activas por generacion',
                        'width':600,
                        'height':300,
                        legend: 'none',
-                       colors:['#76D7C4']};
+                       colors:['#F7DC6F']};
 
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveMEX'));
   grafica.draw(dat, options);
@@ -246,15 +218,15 @@ function drawNoActiveLIM(){
       dat.addColumn('string', 'Ciudad');
       dat.addColumn('number', 'Estudiantes');
       dat.addRows([
-          ['LIM1', allLIM1-activeLI1],
-          ['LIM2', allLIM2-activeLI2],
-          ['LIM3', allLIM3-activeLI3],
+          ['LIM1', (allLIM1-activeLI1)/allLIM1 * 100],
+          ['LIM2', (allLIM2-activeLI2)/allLIM1 * 100],
+          ['LIM3', (allLIM3-activeLI3)/allLIM1 * 100],
       ]);
   var options = {'title':' Estudiantes no activas por generacion',
                        'width':600,
                        'height':300,
                        legend: 'none',
-                       colors:['#76D7C4']};
+                       colors:['#EB984E']};
 
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveLIM'));
   grafica.draw(dat, options);
@@ -267,15 +239,15 @@ function drawNoActiveSCL(){
       dat.addColumn('string', 'Ciudad');
       dat.addColumn('number', 'Estudiantes');
       dat.addRows([
-          ['SCL1', allSCL1-activeSC1],
-          ['SCL2', allSCL2-activeSC2],
-          ['SCL3', activeSC3-allSCL3], //ignora este dato el lunes hablo con levitha
+          ['SCL1', (allSCL1-activeSC1)/allSCL1 * 100],
+          ['SCL2', (allSCL2-activeSC2)/allSCL1 * 100],
+          ['SCL3', (activeSC3-allSCL3)/allSCL1 * 100], //ignora este dato el lunes hablo con levitha
       ]);
   var options = {'title':' Estudiantes no activas por generacion',
                        'width':600,
                        'height':300,
                        legend: 'none',
-                       colors:['#76D7C4']};
+                       colors:['#7DCEA0']};
 
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveSCL'));
   grafica.draw(dat, options);
@@ -467,7 +439,7 @@ function averageSatGDL(){
                        'width':500,
                        'height':300,
                        legend: 'none',
-                       colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
+                       colors:['#76D7C4', '#48C9B0', '#76D7C4']};
   var grafica = new google.visualization.BarChart(document.getElementById('averageSatGDL'));
   grafica.draw(dat, options);
 }
@@ -486,7 +458,7 @@ function averageSatMEX(){
                        'width':500,
                        'height':300,
                        legend: 'none',
-                       colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
+                       colors:['#F7DC6F', '#48C9B0', '#76D7C4']};
   var grafica = new google.visualization.BarChart(document.getElementById('averageSatMEX'));
   grafica.draw(dat, options);
 }
@@ -506,7 +478,7 @@ function averageSatLIM(){
                        'width':500,
                        'height':300,
                        legend: 'none',
-                       colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
+                       colors:['#EB984E', '#48C9B0', '#76D7C4']};
   var grafica = new google.visualization.BarChart(document.getElementById('averageSatLIM'));
   grafica.draw(dat, options);
 }
@@ -526,7 +498,7 @@ function averageSatSCL(){
                        'width':500,
                        'height':300,
                        legend: 'none',
-                       colors:['#1ABC9C', '#48C9B0', '#76D7C4']};
+                       colors:['#7DCEA0', '#48C9B0', '#76D7C4']};
   var grafica = new google.visualization.BarChart(document.getElementById('averageSatSCL'));
   grafica.draw(dat, options);
 }
@@ -721,7 +693,7 @@ google.setOnLoadCallback(averageTeach);
 function averageTeach(){
   var dat = new google.visualization.DataTable();
       dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
+      dat.addColumn('number', 'Puntuación promedio');
       dat.addRows([
           ['GDL', (scoreTG1 + scoreTG2)/2],
           ['MEX', (scoreTCM1 + scoreTCM2)/2],
@@ -741,7 +713,7 @@ google.setOnLoadCallback(averageTeach1);
 function averageTeach1(){
   var dat = new google.visualization.DataTable();
       dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
+      dat.addColumn('number', 'Puntuación promedio');
       dat.addRows([
           ['GDL1', scoreTG1],
           ['GDL2', scoreTG2],
@@ -767,7 +739,7 @@ google.setOnLoadCallback(averageJedi);
 function averageJedi(){
   var dat = new google.visualization.DataTable();
       dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
+      dat.addColumn('number', 'Puntuación promedio');
       dat.addRows([
           ['GDL', (scoreJG1 + scoreJG2)/2],
           ['MEX', (scoreJCM1 + scoreJCM2)/2],
@@ -787,7 +759,7 @@ google.setOnLoadCallback(averageJedi1);
 function averageJedi1(){
   var dat = new google.visualization.DataTable();
       dat.addColumn('string', 'Ciudad');
-      dat.addColumn('number', 'Estudiantes');
+      dat.addColumn('number', 'Puntuación promedio');
       dat.addRows([
           ['GDL1', scoreJG1],
           ['GDL2', scoreJG2],
@@ -808,3 +780,43 @@ function averageJedi1(){
   var grafica = new google.visualization.BarChart(document.getElementById('chartAveJedi1'));
   grafica.draw(dat, options);
 }
+
+
+/*
+successGDL = 0
+for (var i = 0; i < allGDL1; i++) {
+var total = 0;
+var hseGDL = 0;
+var techGDL = 0;
+var successfulGDL = data['GDL']['2016-2']['students'][i].sprints.length;
+for(var i = 0; i < allGDL1; i++){
+  for(var j = 0; j < data['GDL']['2016-2'].students[i].sprints.length ; j++){
+    hseGDL += data['GDL']['2016-2'].students[i].sprints[j].score.hse;
+    techGDL += data['GDL']['2016-2'].students[i].sprints[j].score.tech;
+    total = hseGDL + techGDL;
+
+  }
+  if(total > (2100 * successfulGDL));
+    total++;
+ }
+ console.log(successGDL);
+
+
+
+
+
+ var satisfactionCD1 = 0;
+  var allArrayCD1 = [];
+    sprintsCD1 = [0, 0, 0, 0];
+  for (var i = 0; i < data['CDMX']['2017-1'].ratings.length ; i++) {
+      var cumpleCD1 = data['CDMX']['2017-1'].ratings[i].student.cumple;
+      var  superaCD1= data['CDMX']['2017-1'].ratings[i].student.supera;
+      var bothCD1 = cumpleCD1 + superaCD1;
+      satisfactionCD1 += bothCD1;
+      allArrayCD1[i] = data['CDMX']['2017-1'].ratings[i].student.cumple;
+  }
+    var totalCD1 = (satisfactionCD1 / 3)
+    for (var i = 0; i < data['CDMX']['2017-1'].ratings.length; i++) {
+      sprintsCD1[i] = allArrayCD1[i];
+  }
+*/
