@@ -780,8 +780,8 @@ function averageJedi1(){
 }
 //Nombre de estiudiantes NO Activas GDL
 function namesGDL(){
-    var noactiveG1 = '';
-    var names = document.getElementById('nameGDL')
+    var noactiveGDL = '';
+    var namesGDL = document.getElementById('nameGDL')
     for (var i = 0; i < data['GDL']['2016-2'].students.length ; i++){
         if(!data['GDL']['2016-2'].students[i].active){
           var li = document.createElement('li')
@@ -804,7 +804,8 @@ namesGDL()
 
 //Nombre de estiudiantes NO Activas MEX
 function namesMEX(){
-    var names = document.getElementById('nameMEX')
+    var noactiveMEX= '';
+    var nameMEX = document.getElementById('nameMEX')
     for (var i = 0; i < data['CDMX']['2017-1'].students.length ; i++){
         if(!data['CDMX']['2017-1'].students[i].active){
           var li = document.createElement('li')
@@ -821,9 +822,9 @@ function namesMEX(){
           nameMEX.appendChild(li)
         }
       }
-    return noactiveG1;
+    return noactiveMEX;
 };
-nameMEX()
+namesMEX()
 
 //Nombre de estiudiantes NO Activas MEX
 function nameSCL(){
