@@ -778,30 +778,27 @@ function averageJedi1(){
   var grafica = new google.visualization.BarChart(document.getElementById('chartAveJedi1'));
   grafica.draw(dat, options);
 }
-//Nombre de estiudiantes NO Activas GDL
-function namesGDL(){
-    var noactiveGDL = '';
-    var namesGDL = document.getElementById('nameGDL')
-    for (var i = 0; i < data['GDL']['2016-2'].students.length ; i++){
-        if(!data['GDL']['2016-2'].students[i].active){
-          var li = document.createElement('li')
-          var name = document.createTextNode(data['GDL']['2016-2'].students[i].name)
-          li.appendChild(name)
-          nameGDL.appendChild(li)
+//Nombre de estiudiantes NO Activas por generacion y sede
+var sedeGDL162 = data['GDL']['2016-2'].students //NAME -> Function names
+var nameGDL = document.getElementById('nameGDL') //ELEMENT -> Function names
+
+function names(estudiantesSede, elementPadre){ //Funcion que permite iterar todas las sedes y generaciones
+  console.log(estudiantesSede)
+      for (var i = 0; i < estudiantesSede.length ; i++){ //Iteracion en Sede y generacion
+        if(!estudiantesSede[i].active){ //Condicion para obtener estudiantes no activas
+            console.log('inactiva', estudiantesSede[i].name)
+          var text = estudiantesSede[i].name //Variable que guarda el valor nombre que cumple la condicion
+          var li = document.createElement('li') //Varianle que crea lista en HTML
+          var names = document.createTextNode(text) //Variable que crea el nodo texto
+          li.appendChild(names) //Asignando padre a nodo texto
+          elementPadre.appendChild(li) // Adignando padre a li
         }
     }
-    for (var i = 0; i < data['GDL']['2017-1'].students.length ; i++){
-        if(!data['GDL']['2017-1'].students[i].active){
-          var li = document.createElement('li')
-          var name = document.createTextNode(data['GDL']['2017-1'].students[i].name)
-          li.appendChild(name)
-          nameGDL.appendChild(li)
-        }
-      }
-    return noactiveG1;
 };
-namesGDL()
+names(sedeGDL162, nameGDL); //LLamando a la funcion
 
+
+/*
 //Nombre de estiudiantes NO Activas MEX
 function namesMEX(){
     var noactiveMEX= '';
@@ -857,3 +854,4 @@ function nameSCL(){
     return noactiveG1;
 };
 nameSCL()
+*/
