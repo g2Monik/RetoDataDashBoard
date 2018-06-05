@@ -90,6 +90,28 @@ header {
   position: relative;
 }
 
+.listStatistics {
+  display: inline-block;
+  height: 300px;
+  left: 2%;
+  padding: .5vh;
+  position: relative;
+  width: 400px;
+}
+
+.names {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  left: 20%;
+  position: absolute;
+  width: 300px;
+}
+
+hr {
+  width: 400px;
+}
+
 
 
 /* Footer */

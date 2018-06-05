@@ -14,10 +14,6 @@ var allSCL3 = (data['SCL']['2017-2'].students.length);
 //tenemos que iterar con el for dentro de los objertos para llegar a la key active
 var activeGDL1 = data['GDL']['2016-2'].students;
     var activeG1 = activeGDL1.filter(function(student){return student.active}).length;
-    /*var noactiveG1 = activeGDL1.filter(function(student){return !student.active}).length;
-    if (noactiveG1 === false){
-      return name
-    };*/
 
 var activeGDL2 = data['GDL']['2017-1'].students;
     var activeG2 = activeGDL2.filter(function(student){return student.active}).length;
@@ -69,7 +65,7 @@ function drawActive(){
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartActive')); //en que div del html ira (charActive)
 
   grafica.draw(dat, options);
-}
+};
 
 // Estudiantes No Activas por sede
 google.setOnLoadCallback(drawNoActive);
@@ -90,7 +86,7 @@ function drawNoActive(){
                        colors: ['#1F618D']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActive'));
   grafica.draw(dat, options);
-}
+};
 
 // Grafica de Estudiantes activas por Generacion GDL
 google.setOnLoadCallback(drawActiveGDL);
@@ -110,7 +106,7 @@ function drawActiveGDL(){
                        colors: ['#76D7C4']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveGDL'));
   grafica.draw(dat, options);
-}
+};
 
 // Grafica de Estudiantes activas por Generacion MEX
 google.setOnLoadCallback(drawActiveMEX);
@@ -129,7 +125,7 @@ function drawActiveMEX(){
                        colors: ['#F7DC6F']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveMEX'));
   grafica.draw(dat, options);
-}
+};
 
 // Grafica de Estudiantes activas por Generacion LIM
 google.setOnLoadCallback(drawActiveLIM);
@@ -149,7 +145,7 @@ function drawActiveLIM(){
                        colors: ['#EB984E']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveLIM'));
   grafica.draw(dat, options);
-}
+};
 
 // Grafica de Estudiantes activas por Generacion SCL
 google.setOnLoadCallback(drawActiveSCL);
@@ -169,7 +165,7 @@ function drawActiveSCL(){
                        colors: ['#7DCEA0']};
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartActiveSCL'));
   grafica.draw(dat, options);
-}
+};
 
 // % Estudiantes No Activas por Generacion GDL
 google.setOnLoadCallback(drawNoActiveGDL);
@@ -189,7 +185,7 @@ function drawNoActiveGDL(){
 
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveGDL'));
   grafica.draw(dat, options);
-}
+};
 
 // Estudiantes No Activas por Generacion MEX
 google.setOnLoadCallback(drawNoActiveMEX);
@@ -209,7 +205,7 @@ function drawNoActiveMEX(){
 
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveMEX'));
   grafica.draw(dat, options);
-}
+};
 
 // Estudiantes No Activas por Generacion LIM
 google.setOnLoadCallback(drawNoActiveLIM);
@@ -230,7 +226,7 @@ function drawNoActiveLIM(){
 
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveLIM'));
   grafica.draw(dat, options);
-}
+};
 
 // Estudiantes No Activas por Generacion SCL
 google.setOnLoadCallback(drawNoActiveSCL);
@@ -251,7 +247,8 @@ function drawNoActiveSCL(){
 
   var grafica = new google.visualization.ColumnChart(document.getElementById('chartNoActiveSCL'));
   grafica.draw(dat, options);
-}
+};
+
 // Obteniendo Datos Sobre La satisfaccion De Las estudiantes Cumple + supera
 //GDL1
 var satisfactionG1 = 0;
@@ -776,47 +773,54 @@ function averageJedi1(){
                        'width':550,
                        'height':350,
                        legend: 'none',
-                       colors: ['#D98880']};
+                       colors: ['#D98880']
+                };
   var grafica = new google.visualization.BarChart(document.getElementById('chartAveJedi1'));
   grafica.draw(dat, options);
 }
+//Nombre de estiudiantes NO Activas GDL
+function name(){
+    var noactiveG1 = '';
+    var names = document.getElementById('names')
+    for (var i = 0; i < data['GDL']['2016-2'].students.length ; i++){
+        if(!data['GDL']['2016-2'].students[i].active){
+          var li = document.createElement('li')
+          var name = document.createTextNode(data['GDL']['2016-2'].students[i].name)
+          li.appendChild(name)
+          names.appendChild(li)
+        }
+    }
+    for (var i = 0; i < data['GDL']['2017-1'].students.length ; i++){
+        if(!data['GDL']['2017-1'].students[i].active){
+          var li = document.createElement('li')
+          var name = document.createTextNode(data['GDL']['2017-1'].students[i].name)
+          li.appendChild(name)
+          names.appendChild(li)
+        }
+      }
+    return noactiveG1;
+};
+name()
 
-
-/*
-successGDL = 0
-for (var i = 0; i < allGDL1; i++) {
-var total = 0;
-var hseGDL = 0;
-var techGDL = 0;
-var successfulGDL = data['GDL']['2016-2']['students'][i].sprints.length;
-for(var i = 0; i < allGDL1; i++){
-  for(var j = 0; j < data['GDL']['2016-2'].students[i].sprints.length ; j++){
-    hseGDL += data['GDL']['2016-2'].students[i].sprints[j].score.hse;
-    techGDL += data['GDL']['2016-2'].students[i].sprints[j].score.tech;
-    total = hseGDL + techGDL;
-
-  }
-  if(total > (2100 * successfulGDL));
-    total++;
- }
- console.log(successGDL);
-
-
-
-
-
- var satisfactionCD1 = 0;
-  var allArrayCD1 = [];
-    sprintsCD1 = [0, 0, 0, 0];
-  for (var i = 0; i < data['CDMX']['2017-1'].ratings.length ; i++) {
-      var cumpleCD1 = data['CDMX']['2017-1'].ratings[i].student.cumple;
-      var  superaCD1= data['CDMX']['2017-1'].ratings[i].student.supera;
-      var bothCD1 = cumpleCD1 + superaCD1;
-      satisfactionCD1 += bothCD1;
-      allArrayCD1[i] = data['CDMX']['2017-1'].ratings[i].student.cumple;
-  }
-    var totalCD1 = (satisfactionCD1 / 3)
-    for (var i = 0; i < data['CDMX']['2017-1'].ratings.length; i++) {
-      sprintsCD1[i] = allArrayCD1[i];
-  }
-*/
+//Nombre de estiudiantes NO Activas MEX
+function name(){
+    var noactiveG1 = '';
+    var names = document.getElementById('names1')
+    for (var i = 0; i < data['CDMX']['2017-1'].students.length ; i++){
+        if(!data['CDMX']['2017-1'].students[i].active){
+          var li = document.createElement('li')
+          var name = document.createTextNode(data['CDMX']['2017-1'].students[i].name)
+          li.appendChild(names1)
+          names.appendChild(li)
+        }
+    }
+    for (var i = 0; i < data['CDMX']['2017-2'].students.length ; i++){
+        if(!data['CDMX']['2017-2'].students[i].active){
+          var li = document.createElement('li')
+          var name = document.createTextNode(data['CDMX']['2017-2'].students[i].name)
+          li.appendChild(names1)
+          names.appendChild(li)
+        }
+      }
+    return noactiveG1;
+};
