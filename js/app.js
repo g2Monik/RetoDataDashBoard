@@ -803,25 +803,56 @@ function namesGDL(){
 namesGDL()
 
 //Nombre de estiudiantes NO Activas MEX
-function nameMEX(){
-    var noactiveG1 = '';
-    var names = document.getElementById('names1')
+function namesMEX(){
+    var names = document.getElementById('nameMEX')
     for (var i = 0; i < data['CDMX']['2017-1'].students.length ; i++){
         if(!data['CDMX']['2017-1'].students[i].active){
           var li = document.createElement('li')
           var name = document.createTextNode(data['CDMX']['2017-1'].students[i].name)
-          li.appendChild(names1)
-          names.appendChild(li)
+          li.appendChild(name)
+          nameMEX.appendChild(li)
         }
     }
     for (var i = 0; i < data['CDMX']['2017-2'].students.length ; i++){
         if(!data['CDMX']['2017-2'].students[i].active){
           var li = document.createElement('li')
           var name = document.createTextNode(data['CDMX']['2017-2'].students[i].name)
-          li.appendChild(names1)
-          names.appendChild(li)
+          li.appendChild(name)
+          nameMEX.appendChild(li)
         }
       }
     return noactiveG1;
 };
 nameMEX()
+
+//Nombre de estiudiantes NO Activas MEX
+function nameSCL(){
+    var noactiveG1 = '';
+    var names = document.getElementById('nameSCL')
+    for (var i = 0; i < data['SCL']['2016-2'].students.length ; i++){
+        if(!data['SCL']['2016-2'].students[i].active){
+          var li = document.createElement('li')
+          var name = document.createTextNode(data['SCL']['2016-2'].students[i].name)
+          li.appendChild(name)
+          nameSCL.appendChild(li)
+        }
+    }
+    for (var i = 0; i < data['SCL']['2017-1'].students.length ; i++){
+        if(!data['SCL']['2017-1'].students[i].active){
+          var li = document.createElement('li')
+          var name = document.createTextNode(data['SCL']['2017-1'].students[i].name)
+          li.appendChild(name)
+          nameSCL.appendChild(li)
+        }
+      }
+      for (var i = 0; i < data['SCL']['2017-2'].students.length ; i++){
+          if(!data['SCL']['2017-2'].students[i].active){
+            var li = document.createElement('li')
+            var name = document.createTextNode(data['SCL']['2017-2'].students[i].name)
+            li.appendChild(name)
+            nameSCL.appendChild(li)
+          }
+        }
+    return noactiveG1;
+};
+nameSCL()
