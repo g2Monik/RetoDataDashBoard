@@ -12,6 +12,7 @@ var allSCL2 = (data['SCL']['2017-1'].students.length);
 var allSCL3 = (data['SCL']['2017-2'].students.length);
 //Establecemos las estudiantes activas por sede y generacion
 //tenemos que iterar con el for dentro de los objertos para llegar a la key active
+
 var activeGDL1 = data['GDL']['2016-2'].students;
     var activeG1 = activeGDL1.filter(function(student){return student.active}).length;
 
@@ -780,7 +781,19 @@ function averageJedi1(){
 }
 //Nombre de estiudiantes NO Activas por generacion y sede
 var sedeGDL162 = data['GDL']['2016-2'].students //NAME -> Function names
+var sedeGDL171 = data['GDL']['2017-1'].students
+var sedeCDMEX171 = data['CDMX']['2017-1'].students
+var sedeCDMEX172 = data['CDMX']['2017-2'].students
+var sedeSCL162 = data['SCL']['2016-2'].students
+var sedeSCL171 = data['SCL']['2017-1'].students
+var sedeSCL172 = data['SCL']['2017-2'].students
+var sedeLIM162 = data['LIM']['2016-2'].students
+var sedeLIM171 = data['LIM']['2017-1'].students
+var sedeLIM172 = data['LIM']['2017-2'].students
 var nameGDL = document.getElementById('nameGDL') //ELEMENT -> Function names
+var nameMEX = document.getElementById('nameMEX')
+var nameSCL = document.getElementById('nameSCL')
+var nameLIM = document.getElementById('nameLIM')
 
 function names(estudiantesSede, elementPadre){ //Funcion que permite iterar todas las sedes y generaciones
   console.log(estudiantesSede)
@@ -796,62 +809,12 @@ function names(estudiantesSede, elementPadre){ //Funcion que permite iterar toda
     }
 };
 names(sedeGDL162, nameGDL); //LLamando a la funcion
-
-
-/*
-//Nombre de estiudiantes NO Activas MEX
-function namesMEX(){
-    var noactiveMEX= '';
-    var nameMEX = document.getElementById('nameMEX')
-    for (var i = 0; i < data['CDMX']['2017-1'].students.length ; i++){
-        if(!data['CDMX']['2017-1'].students[i].active){
-          var li = document.createElement('li')
-          var name = document.createTextNode(data['CDMX']['2017-1'].students[i].name)
-          li.appendChild(name)
-          nameMEX.appendChild(li)
-        }
-    }
-    for (var i = 0; i < data['CDMX']['2017-2'].students.length ; i++){
-        if(!data['CDMX']['2017-2'].students[i].active){
-          var li = document.createElement('li')
-          var name = document.createTextNode(data['CDMX']['2017-2'].students[i].name)
-          li.appendChild(name)
-          nameMEX.appendChild(li)
-        }
-      }
-    return noactiveMEX;
-};
-namesMEX()
-
-//Nombre de estiudiantes NO Activas MEX
-function nameSCL(){
-    var noactiveG1 = '';
-    var names = document.getElementById('nameSCL')
-    for (var i = 0; i < data['SCL']['2016-2'].students.length ; i++){
-        if(!data['SCL']['2016-2'].students[i].active){
-          var li = document.createElement('li')
-          var name = document.createTextNode(data['SCL']['2016-2'].students[i].name)
-          li.appendChild(name)
-          nameSCL.appendChild(li)
-        }
-    }
-    for (var i = 0; i < data['SCL']['2017-1'].students.length ; i++){
-        if(!data['SCL']['2017-1'].students[i].active){
-          var li = document.createElement('li')
-          var name = document.createTextNode(data['SCL']['2017-1'].students[i].name)
-          li.appendChild(name)
-          nameSCL.appendChild(li)
-        }
-      }
-      for (var i = 0; i < data['SCL']['2017-2'].students.length ; i++){
-          if(!data['SCL']['2017-2'].students[i].active){
-            var li = document.createElement('li')
-            var name = document.createTextNode(data['SCL']['2017-2'].students[i].name)
-            li.appendChild(name)
-            nameSCL.appendChild(li)
-          }
-        }
-    return noactiveG1;
-};
-nameSCL()
-*/
+names(sedeGDL171, nameGDL);
+names(sedeCDMEX171, nameMEX);
+names(sedeCDMEX172, nameMEX);
+names(sedeSCL162, nameSCL);
+names(sedeSCL171, nameSCL);
+names(sedeSCL172, nameSCL);
+names(sedeLIM162, nameLIM);
+names(sedeLIM171, nameLIM);
+names(sedeLIM172, nameLIM);
