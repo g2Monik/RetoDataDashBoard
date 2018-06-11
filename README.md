@@ -90,3 +90,34 @@ Y realizamos el Mockup detallando el flujo de nuestra aplicación:
 ![Login](assets/images/DD6.jpg)
 
 ![Login](assets/images/DD7.jpg)
+
+## Producto Data Dashboard
+
+### Objetivo
+
+Producto mínimo viable que cubra las necesidades de los Training Manager para recuperar la información relacionada con las alumnas de manera eficaz, en menos tiempo y obteniendo datos precisos.
+
+### Resultados
+
+Página web de fácil navegación. Cuenta con una barra de menú que muestra la fotografía del usuario, estadísticas, sedes y couches.
+    a)	Estadísticas: Muestra la información de las estudiantes de toda Laboratoria por sede. Esto permite obtener los datos globales desde que se ingresa a la página.
+
+    b)	Sedes: Muestra otra sección con las sedes actuales. Al dar clic sobre la imagen de la sede se muestran los datos por generación y en gráficas de la cantidad de estudiantes activas, porcentaje de estudiantes no activas y quienes son,  cantidad y porcentaje de estudiantes exitosas en general, por HSE y Tech. Los datos aparecen pasando el puntero por las barras.
+
+    c)	Couches: Muestra las gráficas de la puntuación promedio de profesores y jedis por sede y generación.
+
+### Propuesta de valor
+
+La propuesta de valor de nuestro producto es:
+
+1.	Estadísticas generales que se muestran en la primera sección que incluyen la información por sede.
+
+2.	Menos clics para llegar a los datos. Tan solo se requieren 7 clics para leer toda la información.
+
+### Trabajo en proceso
+Se continúa trabajando en:
+1.	Página de inicio para entrar con usuario y contraseña
+
+2.	Grafica que muestre la cantidad y porcentaje de estudiantes exitosas por generación, HSE y tech.
+
+3.	Descarga de información.
